@@ -1,12 +1,8 @@
-import styled from 'styled-components';
-import breakpoints from '../constants/breakpoints';
-
 export default function () {
   return (
-    <StyledExperienceContainer>
-      <h3>Experience</h3>
-
-      <StyledList>
+    <div className="grid gap-2">
+      <h3 className="text-lg underline">Experience</h3>
+      <ul className="grid gap-3 m-0 p-0 sm:grid-cols-2">
         {experienceData.map((data) => (
           <ExperienceBlock
             company={data.company}
@@ -15,56 +11,22 @@ export default function () {
             key={data.company}
           />
         ))}
-      </StyledList>
-    </StyledExperienceContainer>
+      </ul>
+    </div>
   );
 }
 
 function ExperienceBlock({ company, title, time }) {
   return (
-    <li>
+    <li className="list-none">
       <h4>{company}</h4>
       <span>
-        <StyledPosition>{title}</StyledPosition>
-        <StyledYear>{time}</StyledYear>
+        <p className="text-sm">{title}</p>
+        <p className="text-xs">{time}</p>
       </span>
     </li>
   );
 }
-
-/** Styles **/
-const StyledExperienceContainer = styled.div`
-  display: grid;
-  grid-gap: 1em;
-
-  h3 {
-    text-decoration: underline;
-  }
-`;
-
-const StyledList = styled.ul`
-  display: grid;
-  grid-gap: 1em;
-  margin: 0;
-  padding: 0;
-
-  @media screen and (${breakpoints.small}) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  li {
-    list-style: none;
-  }
-`;
-
-const StyledPosition = styled.p`
-  font-size: 0.9em;
-`;
-
-const StyledYear = styled.p`
-  font-size: 0.75em;
-`;
-
 /** Data **/
 const experienceData = [
   {

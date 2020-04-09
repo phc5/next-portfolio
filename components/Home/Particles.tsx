@@ -1,21 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Particles from 'react-particles-js';
-import styled, { ThemeContext } from 'styled-components';
 
 export default function () {
-  const themeContext = useContext(ThemeContext);
-  console.log(themeContext);
   return (
-    <StyledParticleContainer>
+    <div className="max-w-full">
       <Particles
         height="350px"
+        style={{
+          height: '350px',
+          left: '0',
+          position: 'absolute',
+          zIndex: ' -999',
+        }}
         params={{
           particles: {
             number: {
               value: 100,
             },
             color: {
-              value: themeContext.text === 'white' ? '#fff' : '#000',
+              value: '#000',
             },
             line_linked: {
               enable: true,
@@ -58,17 +61,6 @@ export default function () {
           retina_detect: true,
         }}
       />
-    </StyledParticleContainer>
+    </div>
   );
 }
-
-const StyledParticleContainer = styled.div`
-  width: 100%;
-
-  canvas {
-    height: 350px;
-    left: 0;
-    position: absolute;
-    z-index: -999;
-  }
-`;

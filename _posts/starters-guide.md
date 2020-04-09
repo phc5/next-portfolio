@@ -2,6 +2,9 @@
 title: "Starter's Guide"
 subtitle: 'Get started on your journey to financial freedom'
 date: '2020-04-07'
+author:
+  name: Paul Chong
+  picture: '/profilepic.jpg'
 ---
 
 ## Step 0: Congratulate yourself! You are making a big and positive change!
@@ -39,7 +42,7 @@ You should not store your emergency fund in stocks or anything with high risk. T
 
 After creating a budget and E-Fund, the next step is to enroll in your employer-sponsored retirement plan. This applies to retirement plans where your employer contributes money towards your plan: a contribution match. Every employer has a different plan and match but the main idea here is that you want to contribute at least the employer match to get "free" money.
 
-How this works is employers match a certain percentage of what you contribute to your retirement plan. For example, if the employer's 401(k) match is 100% of 6%, they will match 100% of your contributions up to 6%. Taking this further, if I make $100,000 dollars a year and contribute 6% ($6,000), my employer will match and also contribute $6,000 dollars to my 401(k). If I contributed only $3,000, my employer would only contribute $3,000. As you can see, it is ideal to contribute up to the match at the very least, if possible.
+How this works is employers match a certain percentage of what you contribute to your retirement plan. For example, if the employer's 401(k) match is 100% of 6%, they will match 100% of your contributions up to 6%. Taking this further, if I make $100,000 dollars a year and contribute 6% ($6,000), my employer will match and also contribute $6,000 dollars to my 401(k). If I contributed only $3,000, my employer would only contribute \$3,000. As you can see, it is ideal to contribute up to the match at the very least, if possible.
 
 This is a good time to also talk about pre-tax deductions. When contributing to a retirement account like the traditional 401(k), the amount you contribute is deducted (subtracted) from your taxable income. If I made $100,000 a year and contributed 15%, my taxable income would be reduced to $85,000 which effectively lowers how much taxes I pay and could put you in a lower tax bracket.
 

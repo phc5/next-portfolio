@@ -1,10 +1,9 @@
 import React from 'react';
-// import styled from 'styled-components';
 import Layout from '../components/Layout';
-import Profile from '../components/Profile';
-import Particles from '../components/Particles';
-import Experience from '../components/Experience';
-import Technology from '../components/Technology';
+import Profile from '../components/Home/Profile';
+import Particles from '../components/Home/Particles';
+import Experience from '../components/Home/Experience';
+import Technology from '../components/Home/Technology';
 
 export default () => (
   <Layout>

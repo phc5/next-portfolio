@@ -1,35 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import Header from './Header/Header';
-import breakpoints from '../constants/breakpoints';
 
-const Layout = (props) => {
+const Layout = ({ children }: { children: any }) => {
   return (
-    <StyledWrapper>
-      <StyledContent>
+    <div className="min-h-screen relative">
+      <div className="grid gap-8 px-8 pb-8 sm:mx-auto sm:pr-0 max-w-5xl">
         <Header />
-        {props.children}
-      </StyledContent>
-    </StyledWrapper>
+        {children}
+      </div>
+    </div>
   );
 };
-
-const StyledWrapper = styled.div`
-  position: relative;
-`;
-
-const StyledContent = styled.div`
-  display: grid;
-  grid-gap: 2em;
-  padding: 0 2em 2em;
-
-  @media screen and (${breakpoints.small}) {
-    margin: 0 auto;
-    padding: 0 0 2em 0;
-
-    max-width: 65em;
-    width: calc(100% - 6em);
-  }
-`;
 
 export default Layout;
