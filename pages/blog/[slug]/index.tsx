@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Layout from '../../../components/Layout';
 import Container from '../../../components/Post/container';
 import PostBody from '../../../components/Post/post-body';
-import Header from '../../../components/Post/header';
 import PostHeader from '../../../components/Post/post-header';
 import PostTitle from '../../../components/Post/post-title';
 import { getPostBySlug, getAllPosts } from '../../../lib/api';
@@ -18,7 +17,6 @@ export default function Post({ post }) {
   return (
     <Layout>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

@@ -1,7 +1,7 @@
 export default function () {
   return (
     <div className="grid gap-2">
-      <h3 className="text-lg underline">Experience</h3>
+      <h3 className="text-lg underline font-bold">Experience</h3>
       <ul className="grid gap-3 m-0 p-0 sm:grid-cols-2">
         {experienceData.map((data) => (
           <ExperienceBlock
