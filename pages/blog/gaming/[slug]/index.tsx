@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import Layout from '../../../components/Layout';
-import Container from '../../../components/Post/container';
-import PostBody from '../../../components/Post/post-body';
-import PostHeader from '../../../components/Post/post-header';
-import PostTitle from '../../../components/Post/post-title';
-import { getPostBySlug, getAllPosts } from '../../../lib/api';
-import markdownToHtml from '../../../lib/markdownToHtml';
+import Layout from '../../../../components/Layout';
+import Container from '../../../../components/Post/container';
+import PostBody from '../../../../components/Post/post-body';
+import PostHeader from '../../../../components/Post/post-header';
+import PostTitle from '../../../../components/Post/post-title';
+import { getPost, getPostSlugs } from '../../../../lib/api';
+import markdownToHtml from '../../../../lib/markdownToHtml';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -41,14 +41,12 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
+  const post = getPost(params.slug, '_posts/gaming', [
     'title',
     'date',
     'slug',
     'author',
     'content',
-    'ogImage',
-    'coverImage',
   ]);
   const content = await markdownToHtml(post.content || '');
 
@@ -63,12 +61,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug']);
+  const paths = getPostSlugs('gaming');
   return {
-    paths: posts.map((posts) => {
+    paths: paths.map((slug) => {
       return {
         params: {
-          slug: posts.slug,
+          slug: slug,
         },
       };
     }),

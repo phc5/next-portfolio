@@ -1,9 +1,11 @@
 ---
 title: 'Creating My Website'
 date: '2020-04-09'
+snippet: 'This is my first blog post on my personal website! I am starting this blog so that I can build my online presence as well as keep learnings on record and reference them in the future...'
 author:
-  name: Paul Chong
+  name: 'Paul Chong'
   picture: '/profilepic.jpg'
+tag: 'Technology'
 ---
 
 This is my first blog post on my personal website! I am starting this blog so that I can build my online presence as well as keep learnings on record and reference them in the future.
