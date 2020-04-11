@@ -1,10 +1,19 @@
 function Profile() {
   return (
-    <div className="flex flex-col justify-evenly h-banner">
-      <img width="128" height="128" src="/profilepic.jpg" />
+    <div className="my-8 flex items-center flex-col md:flex-row justify-evenly md:justify-start">
+      <img
+        width="128"
+        height="128"
+        src="/profilepic.jpg"
+        className="md:mr-8 self-end"
+      />
       <div>
-        <h1 className="m-0 text-4xl">Paul Chong</h1>
-        <h2 className="m-0 text-xl">Software Engineer</h2>
+        <h1 className="m-0 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none text-left">
+          Paul Chong
+        </h1>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight md:leading-none text-left">
+          Software Engineer
+        </h2>
       </div>
     </div>
   );

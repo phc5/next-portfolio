@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
-        <body className="font-sans">
+        <body className="font-sans bg-background-primary text-copy-primary">
           <Main />
           <NextScript />
         </body>

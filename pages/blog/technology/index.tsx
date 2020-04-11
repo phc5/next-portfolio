@@ -9,7 +9,7 @@ import { getPostsFromDirectory } from '../../../lib/api';
 
 export default ({ arrayOfPosts }) => {
   const posts = arrayOfPosts.map((post) => (
-    <div key={post.title}>
+    <div key={post.title} className="mb-6 pt-6">
       <p className="italic">{post.date}</p>
 
       <Link href={post.path}>

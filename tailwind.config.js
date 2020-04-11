@@ -5,11 +5,14 @@ module.exports = {
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
         'accent-7': '#333',
-        'link-hover-custom': '#0070f3',
+        'link-hover-custom': '#805ad5',
         cyan: '#79FFE1',
-      },
-      height: {
-        banner: '350px',
+        background: {
+          primary: 'var(--bg-background-primary)',
+        },
+        copy: {
+          primary: 'var(--text-copy-primary)',
+        },
       },
       justify: {
         evently: 'space-evenly',
@@ -22,6 +25,9 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
+      },
+      border: {
+        bottom: '1px solid black',
       },
       fontSize: {
         '5xl': '2.5rem',

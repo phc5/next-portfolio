@@ -1,8 +1,10 @@
 export default function () {
   return (
-    <div className="grid gap-2">
-      <h3 className="text-lg underline font-bold">Experience</h3>
-      <ul className="grid gap-3 m-0 p-0 sm:grid-cols-2">
+    <div className="grid gap-4">
+      <h3 className="underline text-lg md:text-xl lg:text-2xl font-bold tracking-tighter leading-tight md:leading-none text-left">
+        Experience
+      </h3>
+      <ul className="grid gap-4 m-0 p-0 sm:grid-cols-2">
         {experienceData.map((data) => (
           <ExperienceBlock
             company={data.company}
@@ -19,10 +21,16 @@ export default function () {
 function ExperienceBlock({ company, title, time }) {
   return (
     <li className="list-none">
-      <h4>{company}</h4>
+      <h4 className="text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
+        {company}
+      </h4>
       <span>
-        <p className="text-sm">{title}</p>
-        <p className="text-xs">{time}</p>
+        <p className="text-sm md:text-base lg:text-lg tracking-tighter leading-tight">
+          {title}
+        </p>
+        <p className="text-xs md:text-sm tracking-tighter leading-tight">
+          {time}
+        </p>
       </span>
     </li>
   );

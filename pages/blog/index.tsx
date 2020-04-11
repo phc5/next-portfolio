@@ -10,7 +10,7 @@ import { getMapOfFiles, getDirectories } from '../../lib/api';
 export default ({ directories, mapOfFiles }) => {
   const allPosts = directories.map((directory) => {
     const posts = mapOfFiles[directory].map((post) => (
-      <div key={post.title} className="mt-4 mb-8">
+      <div key={post.title} className="mb-6 pt-6">
         <p className="italic">{post.date}</p>
 
         <Link href={post.path}>
@@ -23,7 +23,7 @@ export default ({ directories, mapOfFiles }) => {
       </div>
     ));
     return (
-      <div key={directory}>
+      <div key={directory} className="mb-10">
         <Link href={`/blog/${directory.toLowerCase()}`}>
           <a className="underline hover:cursor-pointer hover:text-link-hover-custom text-3xl md:text-4xl lg:text-5xl">
             {directory.charAt(0).toUpperCase() + directory.slice(1)}
