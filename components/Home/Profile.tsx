@@ -5,6 +5,7 @@ function Profile() {
         width="128"
         height="128"
         src="/profilepic.jpg"
+        alt="Paul Chong Profile Pic"
         className="md:mr-8 md:self-end"
       />
       <div>

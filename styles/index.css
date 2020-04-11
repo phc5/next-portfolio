@@ -2,14 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.theme-light {
-  --bg-background-primary: white;
-  --text-copy-primary: #242c39;
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
-}
-
-.theme-dark {
-  --bg-background-primary: #121212;
-  --text-copy-primary: #cbd5e0;
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+.dark-mode-transition * {
+  @apply transition duration-500 ease-in-out;
 }

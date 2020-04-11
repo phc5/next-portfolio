@@ -22,7 +22,7 @@
 }
 
 .markdown a:hover {
-  @apply text-link-hover-custom;
+  @apply text-purple-400;
 }
 
 .markdown ul {

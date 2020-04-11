@@ -13,7 +13,7 @@ export default ({ arrayOfPosts }) => {
       <p className="italic">{post.date}</p>
 
       <Link href={post.path}>
-        <a className="hover:cursor-pointer hover:text-link-hover-custom text-lg md:text-xl lg:text-2xl">
+        <a className="underline hover:cursor-pointer hover:text-purple-600 text-lg md:text-xl lg:text-2xl">
           {post.title}
         </a>
       </Link>

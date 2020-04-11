@@ -1,8 +1,7 @@
 import Avatar from './avatar';
-import CoverImage from './cover-image';
 import PostTitle from './post-title';
 
-export default function PostHeader({ title, coverImage, date, author }) {
+export default function PostHeader({ title, date, author }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
