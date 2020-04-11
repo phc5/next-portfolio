@@ -5,7 +5,7 @@ function Profile() {
         width="128"
         height="128"
         src="/profilepic.jpg"
-        className="md:mr-8 self-end"
+        className="md:mr-8 md:self-end"
       />
       <div>
         <h1 className="m-0 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none text-left">
