@@ -1,10 +1,8 @@
 import { NavLink, ExternalLink } from './NavLink';
-import dynamic from 'next/dynamic';
-
-const ThemeSwitch = dynamic(() => import('../ThemeSwitch'), { ssr: false });
+import ThemeSwitch from '../ThemeSwitch';
 
 const Header = () => (
-  <div className="font-light my-8 text-right">
+  <div className="font-light my-8 flex justify-end">
     <NavLink href="/" title="Home" />
     <NavLink href="/blog" title="Blog" />
     <ExternalLink

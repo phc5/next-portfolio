@@ -4,6 +4,19 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      border: {
+        bottom: '1px solid black',
+      },
+      boxShadow: {
+        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
+        medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
+      },
+      fontSize: {
+        '5xl': '2.5rem',
+        '6xl': '2.75rem',
+        '7xl': '4.5rem',
+        '8xl': '6.25rem',
+      },
       justify: {
         eventy: 'space-evenly',
       },
@@ -12,19 +25,6 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
-      },
-      border: {
-        bottom: '1px solid black',
-      },
-      fontSize: {
-        '5xl': '2.5rem',
-        '6xl': '2.75rem',
-        '7xl': '4.5rem',
-        '8xl': '6.25rem',
-      },
-      boxShadow: {
-        small: '0 5px 10px rgba(0, 0, 0, 0.12)',
-        medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
     },
     darkSelector: '.dark-mode',
@@ -156,10 +156,6 @@ module.exports = {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundColor: ['dark', 'responsive', 'hover', 'focus'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderCollapse: ['responsive'],
     borderColor: [
       'dark',
       'dark-focus-within',
