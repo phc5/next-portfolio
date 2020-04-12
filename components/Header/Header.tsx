@@ -9,8 +9,7 @@ const Header = () => (
       href="https://www.github.com/phc5"
       title="Github"
       target="_blank"
-      nofollow="true"
-      noreferrer="true"
+      rel="nofollow noreferrer"
     />
     <ThemeSwitch />
   </div>

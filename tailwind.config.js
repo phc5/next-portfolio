@@ -156,6 +156,10 @@ module.exports = {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundColor: ['dark', 'responsive', 'hover', 'focus'],
+    backgroundPosition: ['responsive'],
+    backgroundRepeat: ['responsive'],
+    backgroundSize: ['responsive'],
+    borderCollapse: ['responsive'],
     borderColor: [
       'dark',
       'dark-focus-within',
