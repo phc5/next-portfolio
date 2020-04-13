@@ -3,7 +3,3 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
-
-.dark-mode-transition * {
-  @apply transition duration-300 ease-in-out;
-}

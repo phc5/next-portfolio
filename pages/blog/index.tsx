@@ -14,7 +14,7 @@ export default ({ directories, mapOfFiles }) => {
         <p className="italic">{post.date}</p>
 
         <Link href={`/blog/${directory}/[slug]`} as={post.path}>
-          <a className="underline hover:cursor-pointer text-lg md:text-xl lg:text-2xl">
+          <a className="underline hover:cursor-pointer hover:text-purple-400 text-lg md:text-xl lg:text-2xl">
             {post.title}
           </a>
         </Link>
@@ -25,7 +25,7 @@ export default ({ directories, mapOfFiles }) => {
     return (
       <div key={directory} className="mb-10">
         <Link href={`/blog/${directory.toLowerCase()}`}>
-          <a className="underline hover:cursor-pointer text-3xl md:text-4xl lg:text-5xl transition duration-150 ease-in-out">
+          <a className="underline hover:cursor-pointer hover:text-purple-400 text-3xl md:text-4xl lg:text-5xl transition duration-150 ease-in-out">
             {directory.charAt(0).toUpperCase() + directory.slice(1)}
           </a>
         </Link>

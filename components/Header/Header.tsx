@@ -1,17 +1,25 @@
-import { NavLink, ExternalLink } from './NavLink';
-import ThemeSwitch from '../ThemeSwitch';
+import Link from 'next/link';
 
 const Header = () => (
   <div className="font-light my-8 flex justify-end">
-    <NavLink href="/" title="Home" />
-    <NavLink href="/blog" title="Blog" />
-    <ExternalLink
+    <Link href="/">
+      <a className="mr-6 cursor-pointer no-underline hover:underline hover:text-purple-400">
+        Home
+      </a>
+    </Link>
+    <Link href="/blog">
+      <a className="mr-6 cursor-pointer no-underline hover:underline hover:text-purple-400">
+        Blog
+      </a>
+    </Link>
+    <a
+      className="cursor-pointer no-underline hover:underline hover:text-purple-400"
       href="https://www.github.com/phc5"
-      title="Github"
       target="_blank"
       rel="nofollow noreferrer"
-    />
-    <ThemeSwitch />
+    >
+      Github
+    </a>
   </div>
 );
 
