@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Profile from '../components/Home/Profile';
 import Experience from '../components/Home/Experience';
 import Technology from '../components/Home/Technology';
+import Portfolio from '../components/Home/Portfolio';
 
 export default () => (
   <>
@@ -18,6 +19,7 @@ export default () => (
       <Profile />
       <Experience />
       <Technology />
+      <Portfolio />
     </Layout>
   </>
 );

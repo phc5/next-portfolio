@@ -32,7 +32,7 @@ export const getPostsFromDirectory = (directory) => {
   files.forEach((file) => {
     const fullPath = join(currentDirectory, file);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     const snippet =
       data.snippet.substr(
@@ -48,30 +48,46 @@ export const getPostsFromDirectory = (directory) => {
     });
   });
 
-  return postsWithData.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return postsWithData.sort((a, b) => +new Date(b.date) - +new Date(a.date));
 };
 
-export const getPost = (slug, path, fields) => {
+export const getPost = (
+  slug,
+  path,
+  fields
+): {
+  title: string;
+  date: string;
+  slug: string;
+  author: {};
+  content: string;
+} => {
   const directory = join(process.cwd(), path);
   const fullPath = join(directory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  const items = {};
+  const post: any = {};
 
   fields.forEach((field) => {
     if (field === 'slug') {
-      items[field] = slug;
+      post[field] = slug;
     }
     if (field === 'content') {
-      items[field] = content;
+      post[field] = content;
     }
 
     if (data[field]) {
-      items[field] = data[field];
+      post[field] = data[field];
     }
   });
 
-  return items;
+  return {
+    title: post.title,
+    date: post.date,
+    slug: post.slug,
+    author: post.author,
+    content: post.content,
+  };
 };
 
 export const getPostSlugs = (directory) => {

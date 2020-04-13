@@ -7,7 +7,7 @@ export default function () {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <h4 className="text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
+          <h4 className="mb-2 text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
             Day-to-day
           </h4>
           <p className="text-xs md:text-sm lg:text-base tracking-tighter leading-tight">
@@ -15,7 +15,7 @@ export default function () {
           </p>
         </div>
         <div>
-          <h4 className="text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
+          <h4 className="mb-2 text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
             Learning and playing with
           </h4>
           <p className="text-xs md:text-sm lg:text-base tracking-tighter leading-tight">

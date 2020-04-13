@@ -14,7 +14,7 @@ This is my first blog post on my personal website! I am starting this blog so th
 
 I have been using React for about three years now and built my previous website using it. Here's a screenshot of it:
 
-![alt text](/old-website.png 'Paul Chong's Old Website Screenshot')
+![My Old Website Screenshot](/blog/old-website.png 'My Old Website Screenshot')
 
 A very basic looking website with not much going on. It was built using [Gatsby.js](https://www.gatsbyjs.org/) while the one you're on right now is built using [Next.js](https://nextjs.org/). Using Next to build out this website has been a joy and I loved how easy it was to deploy. I will be talking more about Next below.
 
