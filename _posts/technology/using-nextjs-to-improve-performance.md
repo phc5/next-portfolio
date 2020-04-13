@@ -20,7 +20,7 @@ At my day job ([KBB.com](https://www.kbb.com)), we have been putting more focus 
 
 As you can see there were some improvements that could be made. (<i>Skip to the end to see the improved metrics.</i>)
 
-Before going straight into development, I did some research and came across Next.js. I had heard about Next and Gatsby online and found that for static-site generation these two frameworks were top-tier. Since I had used Gatsby on my old portfolio website, I decided to give Next.js a try.
+Before going straight into development, I did some research and came across Next.js. I had heard about Next and Gatsby and found that for static-site generation these two frameworks were top-tier. Since I had used Gatsby on my old portfolio website, I decided to give Next.js a try.
 
 ## Lucky to Start Now
 
@@ -69,6 +69,41 @@ Here is an example of the output of a build done on the c4ministry website that 
 As you can see from the screenshot above, pages on the c4ministry website are either static or SSG. But as requests for new features come up, possibly an admin dashboard or member's dashboard, I can utilize Next's `getServerSideProps` or client-side data fetching to fulfill those requirements.
 
 Having this granular level of control allows developers to "future-proof" their applications. If future requirements change and I need to fetch data on each request and server-side render my content, I now have that option available and don't have to redo my architecture.
+
+## Built-in Performance
+
+Out of the box, Next.js provides a number of common optimization techniques such as server-side rendering, automatic code-splitting, route prefetching, and file-system routing.
+
+### Server-side Rendering
+
+When you take a look at the initial load of this website (built in Next.js), you can see that it is server-side rendered. This means that on the initial request, the server will send back a fully rendered page and then has React take over. Your browser will start rendering the HTML from the server without waiting for all the JS to be downloaded and executed which means blazingly fast load times!
+
+There are a few consideration to consider with SSR:
+
+- Time To First Byte is slower than client side rendering because in SSR your server is building out the HTML page.
+- Server will be busier since it is building out HTML pages and making external API calls (if implemented), which means fewer request per second.
+- Initial payload will be bigger since you're sending more HTML.
+- Page will be viewable quicker but user has to wait until react will be done executing before interacting with the page.
+
+### Automatic code-splitting
+
+By default, Next.js splits your JavaScript into separate chunks for each route and every import is only fetched when that page is loaded. To keep bundles and payload smaller, Next only sends users the chunks needed for that route. And as users navigate throughout your application, they are sent the remaining chunks that correspond to those routes. Code-splitting is great because you aren't sending users code thats not needed for the current page that they are on, which results in smaller payloads and faster load times.
+
+At the minimum, your routes are code split. But inside your pages, you can also dynamically import components to get even more optimizations. Say you have a modal or component behind a tab. Instead of loading those components that are not immediately viewable or need a user's action on page load, you can dynamically load them using a dynamic `import()` which Next.js provides. This technique will allow you to lazy load your components and also loads your components in separate chunks.
+
+- <i>Source: [web.dev on Next.js Code Splitting](https://web.dev/code-splitting-with-dynamic-imports-in-nextjs/)</i>
+
+### Built-in Router and Route prefetching
+
+Another awesome thing about Next.js is its built in Router. Next.js uses file-system-based routing so all you have to do is create "pages" inside the `./pages/` directory. When you want to link to an internal route, Next exposes a `<Link />` component via `next/link` that takes in a `href` prop and a bunch of other props that help you with routing. But in terms of optimizations, Next `<Link />`s by default are prefetched.
+
+What is prefetching? After you browser is done loading a page, it goes into idle time where its not doing much. During this idle time, if you designate your links to prefetch, the browser will silently prefetch the specified documents and store them in its cache. When the user clicks a prefetched link, the page can be served up quickly from the browser's cache. To use prefetching, all you need to do is add `rel="prefetch"` to your links!
+
+With Next, you don't have to add those `rel="prefetch"` to your links because Next's `<Link />` has them on by default. You can turn this off by passing `<Link prefetch={false} />` if the link is not as frequently visited. There are some quirks about this `<Link />` component.
+
+- It will only prefetch links that are in appear in the users viewport. In my opinion this is a good thing because if you have a bunch of footer links at the bottom of the page, but the user never gets to the footer, there is no need to prefetch those links!
+- Next will disable prefetching when the network connection is slow.
+- <i>Source: [web.dev on Next.js Route Prefetching](https://web.dev/route-prefetching-in-nextjs/)</i>
 
 ## Porting The Site to Next Boosted Performance
 
