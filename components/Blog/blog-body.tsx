@@ -1,3 +1,10 @@
+import styled from 'styled-components';
+
 export default function PostBody({ children }) {
-  return <div className="max-w-2xl mx-auto">{children}</div>;
+  return <StyledPostBody>{children}</StyledPostBody>;
 }
+
+const StyledPostBody = styled.div`
+  margin: 0 auto;
+  max-width: 42rem;
+`;

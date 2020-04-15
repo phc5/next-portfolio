@@ -18,8 +18,6 @@ I have been using React for about three years now and built my previous website 
 
 A very basic looking website with not much going on. It was built using [Gatsby.js](https://www.gatsbyjs.org/) while the one you're on right now is built using [Next.js](https://nextjs.org/). Using Next to build out this website has been a joy and I loved how easy it was to deploy. I will be talking more about Next below.
 
-To style the website, I initally used [styled-components](https://styled-components.com/) but opted to use [TailWind CSS](https://tailwindcss.com/). This was my first time using Tailwind CSS and when I began removing styled-components and adding Tailwind CSS, it felt like a huge mistake since I wasn't used to the utility-first way of building out components. But after trying it out, I have to say I'm a huge fan of it. The utility-first nature of this CSS framework gave me all of the building blocks I needed to standardize my CSS and build out my design without any opinionated styles from the framework itself.
-
 ### What's Next All About?
 
 Next, as of 9.3, has static site generation and static exporting. They aren't only a server-side rendering framework now: you can utilize both static site generation (SSG) and server-side rendering (SSR)! You can also pick the method of rendering on a per-route basis. This is a big plus as it gives you flexibility and empowers you to choose how you want to render your application.

@@ -1,26 +1,44 @@
 import Link from 'next/link';
+import styled from 'styled-components';
+import { fontWeight, spacing, colors } from '../../styles/theme';
 
 const Header = () => (
-  <div className="font-light my-8 flex justify-end">
+  <StyledHeaderContainer>
     <Link href="/">
-      <a className="mr-6 cursor-pointer no-underline hover:underline hover:text-purple-400">
-        Home
-      </a>
+      <StyledHeaderLink>Home</StyledHeaderLink>
     </Link>
     <Link href="/blog">
-      <a className="mr-6 cursor-pointer no-underline hover:underline hover:text-purple-400">
-        Blog
-      </a>
+      <StyledHeaderLink>Blog</StyledHeaderLink>
     </Link>
-    <a
-      className="cursor-pointer no-underline hover:underline hover:text-purple-400"
+    <StyledHeaderLink
       href="https://www.github.com/phc5"
       target="_blank"
       rel="nofollow noreferrer"
     >
       Github
-    </a>
-  </div>
+    </StyledHeaderLink>
+  </StyledHeaderContainer>
 );
 
 export default Header;
+
+const StyledHeaderContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  font-weight: ${fontWeight.light};
+  margin: ${spacing['8']} 0;
+`;
+
+const StyledHeaderLink = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+
+  :not(:last-child) {
+    margin-right: ${spacing['6']};
+  }
+
+  :hover {
+    color: ${colors.linkHover};
+    text-decoration: underline;
+  }
+`;

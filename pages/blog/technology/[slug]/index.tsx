@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
+import styled from 'styled-components';
 import Layout from '../../../../components/Layout';
 import Container from '../../../../components/Post/container';
 import PostBody from '../../../../components/Post/post-body';
@@ -8,6 +9,7 @@ import PostHeader from '../../../../components/Post/post-header';
 import PostTitle from '../../../../components/Post/post-title';
 import { getPost, getPostSlugs } from '../../../../lib/api';
 import markdownToHtml from '../../../../lib/markdownToHtml';
+import { spacing } from '../../../../styles/theme';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -21,7 +23,7 @@ export default function Post({ post }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <StyledArticle>
               <Head>
                 <title>{post.title} | Paul Chong's Blog</title>
               </Head>
@@ -31,7 +33,7 @@ export default function Post({ post }) {
                 author={post.author}
               />
               <PostBody content={post.content} />
-            </article>
+            </StyledArticle>
           </>
         )}
       </Container>
@@ -72,3 +74,7 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+const StyledArticle = styled.article`
+  margin-bottom: ${spacing['32']};
+`;

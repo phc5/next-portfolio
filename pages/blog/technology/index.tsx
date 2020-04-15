@@ -1,37 +1,37 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import styled from 'styled-components';
 import Layout from '../../../components/Layout';
 import Container from '../../../components/Post/container';
 import BlogBody from '../../../components/Blog/blog-body';
 import BlogHeader from '../../../components/Blog/blog-header';
 import { getPostsFromDirectory } from '../../../lib/api';
+import { spacing, colors, fontSize, screens } from '../../../styles/theme';
 
 export default ({ arrayOfPosts }) => {
   const posts = arrayOfPosts.map((post) => (
-    <div key={post.title} className="mb-6 pt-6">
-      <p className="italic">{post.date}</p>
+    <StyledPostContainer key={post.title}>
+      <StyledPostDate>{post.date}</StyledPostDate>
 
       <Link href={post.path}>
-        <a className="underline hover:cursor-pointer hover:text-purple-600 text-lg md:text-xl lg:text-2xl">
-          {post.title}
-        </a>
+        <StyledPostLink>{post.title}</StyledPostLink>
       </Link>
 
       <p>{post.snippet}</p>
-    </div>
+    </StyledPostContainer>
   ));
 
   return (
     <Layout>
       <Container>
-        <div className="mb-32">
+        <StyledBlogWrapper>
           <Head>
             <title>Technology Blog | Paul Chong's Blog</title>
           </Head>
           <BlogHeader title="Technology" />
           <BlogBody>{posts}</BlogBody>
-        </div>
+        </StyledBlogWrapper>
       </Container>
     </Layout>
   );
@@ -46,3 +46,34 @@ export async function getStaticProps() {
     },
   };
 }
+
+const StyledBlogWrapper = styled.div`
+  margin-bottom: ${spacing['32']};
+`;
+
+const StyledPostContainer = styled.div`
+  margin-bottom: ${spacing['6']};
+  padding-top: ${spacing['6']};
+`;
+
+const StyledPostDate = styled.p`
+  font-style: italic;
+`;
+
+const StyledPostLink = styled.a`
+  font-size: ${fontSize.lg};
+  text-decoration: underline;
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize.xl};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['2xl']};
+  }
+
+  :hover {
+    color: ${colors.linkHover};
+    cursor: pointer;
+  }
+`;

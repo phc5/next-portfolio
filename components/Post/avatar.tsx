@@ -1,13 +1,36 @@
+import styled from 'styled-components';
 import Date from './date';
+import { spacing, fontSize, fontWeight } from '../../styles/theme';
 
 export default function Avatar({ name, picture, date }) {
   return (
-    <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="mr-3">
-        <div className="text-xl font-bold">{name}</div>
+    <StyledAvatarContainer>
+      <StyledImage src={picture} alt={name} />
+      <StyledNameDateContainer>
+        <StyledName>{name}</StyledName>
         <Date dateString={date} />
-      </div>
-    </div>
+      </StyledNameDateContainer>
+    </StyledAvatarContainer>
   );
 }
+
+const StyledAvatarContainer = styled.div`
+  align-items: center;
+  display: flex;
+`;
+
+const StyledImage = styled.img`
+  border-radius: 9999px;
+  height: ${spacing['12']};
+  margin-right: ${spacing['4']};
+  width: ${spacing['12']};
+`;
+
+const StyledNameDateContainer = styled.div`
+  margin-right: ${spacing['3']};
+`;
+
+const StyledName = styled.div`
+  font-size: ${fontSize.xl};
+  font-weight: ${fontWeight.bold};
+`;

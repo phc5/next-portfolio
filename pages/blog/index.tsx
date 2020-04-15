@@ -1,36 +1,36 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import styled from 'styled-components';
 import Layout from '../../components/Layout';
 import Container from '../../components/Post/container';
 import BlogBody from '../../components/Blog/blog-body';
 import BlogHeader from '../../components/Blog/blog-header';
 import { getMapOfFiles, getDirectories } from '../../lib/api';
+import { spacing, fontSize, colors, screens } from '../../styles/theme';
 
 export default ({ directories, mapOfFiles }) => {
   const allPosts = directories.map((directory) => {
     const posts = mapOfFiles[directory].map((post) => (
-      <div key={post.title} className="mb-6 pt-6">
-        <p className="italic">{post.date}</p>
+      <StyledPostDiv key={post.title}>
+        <StyledPostDate>{post.date}</StyledPostDate>
 
         <Link href={`/blog/${directory}/[slug]`} as={post.path}>
-          <a className="underline hover:cursor-pointer hover:text-purple-400 text-lg md:text-xl lg:text-2xl">
-            {post.title}
-          </a>
+          <StyledPostLink>{post.title}</StyledPostLink>
         </Link>
 
         <p>{post.snippet}</p>
-      </div>
+      </StyledPostDiv>
     ));
     return (
-      <div key={directory} className="mb-10">
+      <StyledBlogTypeContainer key={directory}>
         <Link href={`/blog/${directory.toLowerCase()}`}>
-          <a className="underline hover:cursor-pointer hover:text-purple-400 text-3xl md:text-4xl lg:text-5xl transition duration-150 ease-in-out">
+          <StyledBlogTypeLink>
             {directory.charAt(0).toUpperCase() + directory.slice(1)}
-          </a>
+          </StyledBlogTypeLink>
         </Link>
         {posts}
-      </div>
+      </StyledBlogTypeContainer>
     );
   });
 
@@ -60,3 +60,52 @@ export async function getStaticProps() {
     },
   };
 }
+
+const StyledBlogTypeContainer = styled.div`
+  margin-bottom: ${spacing['10']};
+`;
+
+const StyledBlogTypeLink = styled.a`
+  font-size: ${fontSize['3xl']};
+  text-decoration: underline;
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize['4xl']};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['5xl']};
+  }
+
+  :hover {
+    color: ${colors.linkHover};
+    cursor: pointer;
+  }
+`;
+
+const StyledPostDiv = styled.div`
+  margin-bottom: ${spacing['6']};
+  padding-top: ${spacing['6']};
+`;
+
+const StyledPostDate = styled.p`
+  font-style: italic;
+`;
+
+const StyledPostLink = styled.a`
+  font-size: ${fontSize.lg};
+  text-decoration: underline;
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize.xl};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['2xl']};
+  }
+
+  :hover {
+    color: ${colors.linkHover};
+    cursor: pointer;
+  }
+`;

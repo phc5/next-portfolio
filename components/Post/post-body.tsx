@@ -1,12 +1,60 @@
-import markdownStyles from './markdown-styles.module.css';
+import styled from 'styled-components';
+import {
+  colors,
+  fontSize,
+  lineHeight,
+  maxWidth,
+  spacing,
+} from '../../styles/theme';
 
 export default function PostBody({ content }) {
   return (
-    <div className="max-w-2xl mx-auto">
-      <div
-        className={markdownStyles['markdown']}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-    </div>
+    <StyledPostBodyContainer>
+      <StyledPostBody dangerouslySetInnerHTML={{ __html: content }} />
+    </StyledPostBodyContainer>
   );
 }
+
+const StyledPostBodyContainer = styled.div`
+  margin: 0 auto;
+  max-width: ${maxWidth['2xl']};
+`;
+
+const StyledPostBody = styled.div`
+  font-size: ${fontSize.lg};
+
+  p,
+  ul,
+  ol,
+  blockquote {
+    margin: ${spacing['6']} 0;
+  }
+
+  h2 {
+    font-size: ${fontSize['3xl']};
+    line-height: ${lineHeight.snug};
+    margin: ${spacing['12']} 0 ${spacing['4']} 0;
+  }
+
+  h3 {
+    font-size: ${fontSize['2xl']};
+    line-height: ${lineHeight.snug};
+    margin: ${spacing['8']} 0 ${spacing['4']} 0;
+  }
+
+  a {
+    text-decoration: underline;
+
+    :hover {
+      color: ${colors.linkHover};
+    }
+  }
+
+  ul {
+    padding-left: 2rem;
+  }
+
+  .markdown ul li {
+    list-style: disc;
+  }
+`;
