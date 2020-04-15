@@ -127,11 +127,11 @@ const StyledJobTitle = styled.p`
 `;
 
 const StyledJobTime = styled.p`
-  font-size: ${fontSize.xs};
+  font-size: ${fontSize.sm};
   letter-spacing: ${letterSpacing.tighter};
   line-height: ${lineHeight.tight};
 
-  @media (min-width: ${screens.sm}) {
+  @media (min-width: ${screens.md}) {
     font-size: ${fontSize['md']};
   }
 `;
