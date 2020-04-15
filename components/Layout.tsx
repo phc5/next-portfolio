@@ -1,14 +1,33 @@
+import styled from 'styled-components';
 import Header from './Header/Header';
+import { spacing, screens } from '../styles/theme';
 
 const Layout = ({ children }: { children: any }) => {
   return (
-    <div className="min-h-screen relative bg-dark-bg text-dark-mode-text">
-      <div className="grid gap-8 px-8 pb-8 sm:mx-auto sm:pr-0 max-w-5xl">
+    <StyledMinHeightContainer>
+      <StyledContentGrid>
         <Header />
         {children}
-      </div>
-    </div>
+      </StyledContentGrid>
+    </StyledMinHeightContainer>
   );
 };
 
 export default Layout;
+
+const StyledMinHeightContainer = styled.div`
+  min-height: 100vh;
+  position: relative;
+`;
+
+const StyledContentGrid = styled.div`
+  display: grid;
+  grid-gap: ${spacing['8']};
+  max-width: 64rem;
+  padding: 0 ${spacing['8']} ${spacing['8']} ${spacing['8']};
+
+  @media (min-width: ${screens.sm}) {
+    margin: 0 auto;
+    padding-right: 0;
+  }
+`;

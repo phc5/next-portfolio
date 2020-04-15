@@ -1,17 +1,21 @@
 import Link from 'next/link';
+import styled, { css } from 'styled-components';
 import Layout from '../components/Layout';
+import { colors } from '../styles/theme';
+
+const textCenter = css({ textAlign: 'center' });
 
 export default function Custom404() {
   return (
     <Layout>
-      <div className="text-center">
+      <div css={textCenter}>
         <p>404 - Page Not Found</p>
         <br />
         <span>
           Go back{' '}
           <Link href="/" passHref>
             <span>
-              <a className="cursor-pointer underline">Home</a>
+              <StyledLink>Home</StyledLink>
             </span>
           </Link>
           .
@@ -20,3 +24,11 @@ export default function Custom404() {
     </Layout>
   );
 }
+
+const StyledLink = styled.a`
+  :hover {
+    cursor: pointer;
+    color: ${colors.linkHover};
+    text-decoration: underline;
+  }
+`;

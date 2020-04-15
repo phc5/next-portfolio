@@ -1,28 +1,96 @@
+import styled from 'styled-components';
+import {
+  spacing,
+  fontSize,
+  fontWeight,
+  screens,
+  lineHeight,
+  letterSpacing,
+} from '../../styles/theme';
+
 export default function () {
   return (
-    <div className="grid gap-4">
-      <h3 className="underline text-lg md:text-xl lg:text-2xl font-bold tracking-tighter leading-tight md:leading-none text-left">
-        Technology
-      </h3>
+    <StyledTechContainer>
+      <StyledH3>Technology</StyledH3>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <StyledTechDetailsContainer>
         <div>
-          <h4 className="mb-2 text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
-            Day-to-day
-          </h4>
-          <p className="text-xs md:text-sm lg:text-base tracking-tighter leading-tight">
+          <StyledTechDetailsTitle>Day-to-day</StyledTechDetailsTitle>
+          <StyledTechDetailsParagraph>
             JavaScript, React, Next.js, GraphQL, CSS, AWS, .NET, and Node.js.
-          </p>
+          </StyledTechDetailsParagraph>
         </div>
         <div>
-          <h4 className="mb-2 text-base md:text-lg lg:text-xl tracking-tighter leading-tight">
+          <StyledTechDetailsTitle>
             Learning and playing with
-          </h4>
-          <p className="text-xs md:text-sm lg:text-base tracking-tighter leading-tight">
+          </StyledTechDetailsTitle>
+          <StyledTechDetailsParagraph>
             Typescript, Rx.js, Python, Flutter, Animations, and many more.
-          </p>
+          </StyledTechDetailsParagraph>
         </div>
-      </div>
-    </div>
+      </StyledTechDetailsContainer>
+    </StyledTechContainer>
   );
 }
+
+const StyledTechContainer = styled.div`
+  display: grid;
+  grid-gap: ${spacing['4']};
+`;
+
+const StyledH3 = styled.h3`
+  font-size: ${fontSize['lg']};
+  font-weight: ${fontWeight.bold};
+  letter-spacing: ${letterSpacing.tighter};
+  line-height: ${lineHeight.tight};
+  text-align: left;
+  text-decoration: underline;
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize['xl']};
+    line-height: ${lineHeight.none};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['2xl']};
+  }
+`;
+
+const StyledTechDetailsContainer = styled.div`
+  display: grid;
+  grid-gap: ${spacing['4']};
+
+  @media (min-width: ${screens.sm}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`;
+
+const StyledTechDetailsTitle = styled.h4`
+  font-size: ${fontSize.base};
+  letter-spacing: ${letterSpacing.tighter};
+  line-height: ${lineHeight.tight};
+  margin-bottom: ${spacing['2']};
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize['lg']};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['xl']};
+  }
+`;
+
+const StyledTechDetailsParagraph = styled.p`
+  font-size: ${fontSize.xs};
+  letter-spacing: ${letterSpacing.tighter};
+  line-height: ${lineHeight.tight};
+  margin-bottom: ${spacing['2']};
+
+  @media (min-width: ${screens.md}) {
+    font-size: ${fontSize['xs']};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSize['base']};
+  }
+`;
