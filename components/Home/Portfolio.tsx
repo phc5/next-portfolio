@@ -29,7 +29,7 @@ export default function () {
 
           <StyledPortfolioDetailsList>
             <StyledPortfolioDetailsListItem>
-              Built and maintained 5 micro services and web applications, using
+              Built and maintained 5 micro services and web applications using
               React, Node, GraphQL, .NET, & AWS.
             </StyledPortfolioDetailsListItem>
             <StyledPortfolioDetailsListItem>

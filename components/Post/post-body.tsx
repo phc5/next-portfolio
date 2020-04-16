@@ -54,7 +54,16 @@ const StyledPostBody = styled.div`
     padding-left: 2rem;
   }
 
-  .markdown ul li {
+  ul > li {
     list-style: disc;
+    margin-bottom: 1.5rem;
+
+    * {
+      margin: 0;
+
+      li {
+        list-style: circle;
+      }
+    }
   }
 `;
