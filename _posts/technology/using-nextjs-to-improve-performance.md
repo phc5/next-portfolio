@@ -83,25 +83,27 @@ There are a few consideration to consider with SSR:
 - Time To First Byte is slower than client side rendering because in SSR your server is building out the HTML page.
 - Server will be busier since it is building out HTML pages and making external API calls (if implemented), which means fewer request per second.
 - Initial payload will be bigger since you're sending more HTML.
-- Page will be viewable quicker but user has to wait until react will be done executing before interacting with the page.
+- Page will be viewable quicker but user has to wait until React is downloaded, parsed, and executed before interacting with the page.
 
 ### Automatic code-splitting
 
-By default, Next.js splits your JavaScript into separate chunks for each route and every import is only fetched when that page is loaded. To keep bundles and payload smaller, Next only sends users the chunks needed for that route. And as users navigate throughout your application, they are sent the remaining chunks that correspond to those routes. Code-splitting is great because you aren't sending users code thats not needed for the current page that they are on, which results in smaller payloads and faster load times.
+By default, Next.js splits your JavaScript into separate chunks for each route and every import is only fetched when that page is loaded. To keep bundles and payloads smaller, Next only sends users the chunks needed for that route. And as users navigate throughout your application, they are sent the remaining chunks that correspond to those routes. Code-splitting is great because you aren't sending users code that is not needed for the current page, which results in smaller payloads and faster load times.
 
-At the minimum, your routes are code split. But inside your pages, you can also dynamically import components to get even more optimizations. Say you have a modal or component behind a tab. Instead of loading those components that are not immediately viewable or need a user's action on page load, you can dynamically load them using a dynamic `import()` which Next.js provides. This technique will allow you to lazy load your components and also loads your components in separate chunks.
+At the minimum, your routes are code split. But inside your pages, you can also dynamically import components. Say you have a modal or component behind a tab. Instead of loading those components that are not immediately viewable or need a user's action on page load, you can dynamically load them using a dynamic `import()` which Next.js provides. This technique will allow you to lazy load your components and also loads your components in separate chunks.
 
 - <i>Source: [web.dev on Next.js Code Splitting](https://web.dev/code-splitting-with-dynamic-imports-in-nextjs/)</i>
 
 ### Built-in Router and Route prefetching
 
-Another awesome thing about Next.js is its built in Router. Next.js uses file-system-based routing so all you have to do is create "pages" inside the `./pages/` directory. When you want to link to an internal route, Next exposes a `<Link />` component via `next/link` that takes in a `href` prop and a bunch of other props that help you with routing. But in terms of optimizations, Next `<Link />`s by default are prefetched.
+Another awesome thing about Next.js is its built in Router. Next.js uses file-system-based routing so all you have to do is create files inside the `./pages/` directory. When you want to link to an internal route, Next exposes a `<Link />` component via `next/link` that takes in a `href` prop and a bunch of other props that help you with routing. One quirk about Next `<Link />`s are that they are prefetched by default.
 
-What is prefetching? After you browser is done loading a page, it goes into idle time where its not doing much. During this idle time, if you designate your links to prefetch, the browser will silently prefetch the specified documents and store them in its cache. When the user clicks a prefetched link, the page can be served up quickly from the browser's cache. To use prefetching, all you need to do is add `rel="prefetch"` to your links!
+What is prefetching? After your browser is done loading a page, it goes into idle time where it's not doing much. During this idle time, if you designate your links to prefetch, the browser will silently prefetch the specified documents and store them in its cache. When the user clicks a prefetched link, the page can be served up quickly from the browser's cache.
 
-With Next, you don't have to add those `rel="prefetch"` to your links because Next's `<Link />` has them on by default. You can turn this off by passing `<Link prefetch={false} />` if the link is not as frequently visited. There are some quirks about this `<Link />` component.
+To use prefetching on `<a>`s, all you need to do is add the attribute `rel="prefetch"`! With Next `<Link>`s, you don't have to add the attribute `rel="prefetch"` it is on by default. If the link is not frequently visited or you don't want to prefetch, you can turn prefetch off by passing `<Link prefetch={false} />`.
 
-- It will only prefetch links that are in appear in the users viewport. In my opinion this is a good thing because if you have a bunch of footer links at the bottom of the page, but the user never gets to the footer, there is no need to prefetch those links!
+Some other quirks about the `<Link />` component.
+
+- It will only prefetch links that are in the user's viewport. In my opinion this is a good thing because if you have a bunch of footer links at the bottom of the page, but the user never gets to the footer, there is no need to prefetch those links!
 - Next will disable prefetching when the network connection is slow.
 - <i>Source: [web.dev on Next.js Route Prefetching](https://web.dev/route-prefetching-in-nextjs/)</i>
 

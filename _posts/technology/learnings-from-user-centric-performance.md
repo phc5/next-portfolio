@@ -72,7 +72,7 @@ First Contentful Paint measures the time from when the page starts loading to wh
 
 ![Reddit Page Load Frames](/blog/redditPageLoad.png 'Reddit Page Load Frames')
 
-Above is a screen capture of Reddit's page load. You can see on the first frame theres no content but on the second frame there is content being loaded in. This is where FCP happens: where text and images first begin to be rendered. To provide a good user experience, Google designates that FCP should happen under 1 second after the page has started to load.
+Above is a screen capture of Reddit's page load. You can see on the first frame there's no content but on the second frame there's content being loaded in. This is where FCP happens: when text and images first begin to be rendered. To provide a good user experience, Google recommends that FCP should happen under 1 second after the page has started to load.
 
 There are some things you can do to improve your FCP:
 
@@ -146,12 +146,12 @@ To learn more about FID and how to improve it, go here: [web.dev - Largest Conte
 
 ## Time to Interactive
 
-Time to Interactive measures the time from when the page starts loading to when its main sub-resources have loaded and it is capable of reliably responding to user input quickly. In technical terms, time of the last long task before the quiet window.
+Time to Interactive measures the time from when the page starts loading to when its main sub-resources have loaded so that your app can reliably respond to user input. In technical terms, this is the time of the last long task before the quiet window.
 
 - A long task is any task in the main thread that takes longer than 50ms.
-- The quiet window is a 5-second period of time where there no long tasks and no more than two in-flight network GET requests.
+- The quiet window is a 5-second period of time where there are no long tasks and no more than two in-flight network GET requests.
 
-When optimizing for performance, developers sought after fast initial render times. This was achieved in ways such as server-side rendering but this technique can cause higher TTI due to the fact that the page is visually rendered but not interactive immediately since the main thread is blocked downloading the JS that enables the interactivity of the elements on the page. To remedy this issue, Google recommends minimizing the time between FCP and TTI and/or having visual indicators that tell users intuitively that the element is not interactive yet.
+When optimizing for performance, developers look to achieve fast initial render times. This was achieved in ways such as server-side rendering but this technique can cause higher TTI due to the fact that the page is visually rendered but not interactive immediately since the main thread is blocked downloading JS (which enables the interactivity of the elements on the page). To remedy this issue, Google recommends minimizing the time between FCP and TTI and/or having visual indicators that tell users intuitively that the element is not interactive yet.
 
 Google recommends having a TTI of <5 seconds and recommends these improvements, if applicable:
 
@@ -170,7 +170,7 @@ To learn more about TTI and how to improve it, go here: [web.dev - Time to Inter
 
 ## Total Blocking Time
 
-Total Blocking Time measures the total amount of time between FCP and TTI. This is where the main thread was blocked for long enough to prevent user input responsiveness. When a user interacts with your application in the middle of a long task, the browser must wait for the task to finish before it can respond to the user input. If the task is long enough (> 50ms according to research), the user might notice a delay and the interaction will feel slow and/or janky.
+Total Blocking Time measures the total amount of time between FCP and TTI. This is where the main thread is blocked for long enough to prevent user input responsiveness. When a user interacts with your application in the middle of a long task, the browser must wait for the task to finish before it can respond to the user input. If the task is long enough (> 50ms according to research), the user might notice a delay and the interaction will feel slow and/or janky.
 
 Google recommends a TBT of less than 300 milliseconds and recommends these improvements:
 
@@ -191,7 +191,7 @@ Via the Layout Shift API, layout shifts are defined as any time an element that 
   - For example, say you render an element that is full width, 100px tall, and positioned at (0,0). If you were to move it to position (0, -50), the impact fraction would be 150.
 - Distance fraction: measures the distance that unstable elements have moved, relative to the viewport. It is the greatest distance any unstable element has moved in the frame (either horizontally or vertically) divided by the viewport's largest dimension (width or height, whichever is greater).
 
-Layout shifts that occur within 500 ms of user input are excluded from calculations since not all layout shifts are bad! Also elements that move via the CSS property `transform` are also excluded.
+Layout shifts that occur within 500 ms of user input are excluded from calculations since not all layout shifts are bad! Also elements that move via the CSS property `transform` are excluded.
 
 Google recommends a CLS of < 0.1. To improve your CLS score follow these guidelines:
 
@@ -204,6 +204,6 @@ To learn more about CLS and how to improve it, go here: [web.dev - Cumulative La
 
 ## Final Thoughts
 
-There is definitely many ways you can improve the performance of your application and not all of these optimizations may work for you. As you test your applications for performance remember to test in both simulated pages in a consistent, controlled environment such as WebPageTest and on real users/devices.
+There are definitely many ways you can improve the performance of your application and not all of these optimizations may work for you. Do not go blindly applying performance optimizations just because a performance tool tells you to. You should first look at the needs and goals of your business or application, measure your current performance and progress to your goals, and then optimize as needed. As you test your applications for performance, remember to test in both simulated, controlled environments such as WebPageTest and on real users/devices.
 
 Go here to learn more about [User-Centric Performance](https://web.dev/user-centric-performance-metrics/)!
