@@ -33,11 +33,11 @@ export const getPostsFromDirectory = (directory) => {
     const fullPath = join(currentDirectory, file);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
-
+    const trimmedSnippet = data.snippet.substr(0, 160);
     const snippet =
-      data.snippet.substr(
+      trimmedSnippet.substr(
         0,
-        Math.min(data.snippet.length, data.snippet.lastIndexOf(' '))
+        Math.min(trimmedSnippet.length, trimmedSnippet.lastIndexOf(' '))
       ) + '...';
 
     postsWithData.push({
