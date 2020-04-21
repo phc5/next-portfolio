@@ -58,11 +58,19 @@ const StyledPostBody = styled.div`
     list-style: disc;
     margin-bottom: 1.5rem;
 
-    * {
+    ul {
       margin: 0;
 
       li {
         list-style: circle;
+
+        ul {
+          margin: 0;
+
+          li {
+            list-style: square;
+          }
+        }
       }
     }
   }
