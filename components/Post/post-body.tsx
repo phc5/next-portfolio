@@ -76,12 +76,14 @@ const StyledPostBody = styled.div`
     }
   }
 
-  code {
-    font-size: ${fontSize.xxs};
-    white-space: pre-wrap;
+  pre {
+    code {
+      font-size: ${fontSize.xxs};
+      white-space: pre-wrap;
 
-    @media (min-width: ${screens.sm}) {
-      font-size: ${fontSize.base};
+      @media (min-width: ${screens.sm}) {
+        font-size: ${fontSize.base};
+      }
     }
   }
 `;
