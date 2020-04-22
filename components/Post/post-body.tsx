@@ -5,6 +5,7 @@ import {
   lineHeight,
   maxWidth,
   spacing,
+  screens,
 } from '../../styles/theme';
 
 export default function PostBody({ content }) {
@@ -72,6 +73,15 @@ const StyledPostBody = styled.div`
           }
         }
       }
+    }
+  }
+
+  code {
+    font-size: ${fontSize.xxs};
+    white-space: pre-wrap;
+
+    @media (min-width: ${screens.sm}) {
+      font-size: ${fontSize.base};
     }
   }
 `;
