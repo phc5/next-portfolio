@@ -1,7 +1,7 @@
 ---
 title: 'Computer Science Fundamentals: Data Structures'
-date: '2020-04-21'
-snippet: 'Notes taken from going over 4 SEmesters of Computer Science in 5 Hours on FEM'
+date: '2020-04-22'
+snippet: 'In this blog post, I go over Sets, Maps, Stacks, Queues, ArrayLists, Linked Lists, BSTs, Hash Maps, Bloom Filters, Trees, Graphs, Tries, Heap Sort, Radix Sort and more!'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
