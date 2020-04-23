@@ -77,12 +77,14 @@ const StyledPostBody = styled.div`
   }
 
   pre {
+    overflow: scroll;
     code {
       font-size: ${fontSize.xxs};
       white-space: pre-wrap;
 
       @media (min-width: ${screens.sm}) {
         font-size: ${fontSize.base};
+        white-space: unset;
       }
     }
   }

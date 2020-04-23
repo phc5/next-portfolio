@@ -7,10 +7,10 @@ export default function Container({ children }) {
 
 const StyledContainer = styled.div`
   margin: 0 auto;
-  padding: 0 ${spacing['5']};
   width: 100%;
 
   @media (min-width: ${screens.sm}) {
+    padding: 0 ${spacing['5']};
     max-width: ${screens.sm};
   }
 
