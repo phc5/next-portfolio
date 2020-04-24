@@ -12,6 +12,11 @@ tag: 'Technology'
 
 Big O is the way we analyze how efficient algorithms or code is. Example `4x^2 + x + 1`. If `x = 5`, the first number would be 100, second number 25, and third 1 for a total of 126. But if you plugged in a large number like 1,000,000, the first number would be 4e+12, second number 1,000,000, and the third 1. A huge difference. In the second example, we don't care too much about the 2nd and 3rd numbers since the first number is the bulk of the result so we ignore the little parts and concentrate on the big parts.
 
+Space Complexity: How much memory is used?
+Time Complexity: How many primitive operations are executed?
+
+...with respect to input size and assuming worst case scenario.
+
 ## Recursion
 
 Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Or, it is a function that calls itself and maintains state throughout its execution.
