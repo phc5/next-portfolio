@@ -1,7 +1,7 @@
 ---
-title: 'Some notes about React'
+title: 'Some Notes About React'
 date: '2020-04-23'
-snippet: ''
+snippet: 'In this blog post, I talk about some of the React internals and functionalities that may not be so obvious to React developers.'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
@@ -65,21 +65,18 @@ There are two different cycles in React:
 
 Initial Render
 
-1. Call render() to build tree
-2. Cache as current tree (Virtual DOM)
-3. Render DOM
+- Call render() to build tree
+- Cache as current tree (Virtual DOM)
+- Render DOM
 
 Updates
 
-What causes React to render again?
+Only state changes and forceUpdate() causes React to rerender.
 
-- State Changes
-- forceUpdate()
-
-1. Call render() to build future tree
-2. Compare each element in future tree ot current tree from Initial Render
-3. Change DOM where needed
-4. Save future tree as current tree
+- Call render() to build future tree
+- Compare each element in future tree ot current tree from Initial Render
+- Change DOM where needed
+- Save future tree as current tree
 
 As React is going through the updates phase, everytime React notices something has changed, it makes the change immediately rather than compiling a list of changes and doing it all at once.
 
