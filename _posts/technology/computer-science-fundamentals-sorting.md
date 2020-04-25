@@ -65,6 +65,19 @@ function memoize(callback) {
 }
 ```
 
+## Sorting Types
+
+Native Sorts: keep looping and comparing values until that list is sorted.
+
+- Bubble Sort
+- Insertion Sort
+- Selection Sort
+
+Divide and Conquer Sorts: recursively divide lists and sort smaller parts of list under entire list is sorted.
+
+- Mergesort
+- Quicksort
+
 ## Bubble Sort
 
 Compare two values at a time and swap them if they are out of order.
@@ -201,6 +214,19 @@ function quickSort(array) {
   return sortedLeft.concat(pivot, sortedRight);
 }
 ```
+
+## Greedy Algorithms
+
+Greedy ALgorithms always make the locally optimal choice without considering the big picture. Greedy algorithms are not always optimal. However, there is a time and a place for greedy algorithms: when your data set is too big that you can't think of all the different scenarios because its just computationally too much, so its better to have a solution rather than no solution.
+
+## Dynamic Programming
+
+Cache values to avoid repeated calculations. Dynamic programming has overlapping subproblems and tends to be recursive.
+
+Approaches:
+
+- Top Down (recursive)
+- Bottom Up (iterative)
 
 ## Final Thoughts
 
