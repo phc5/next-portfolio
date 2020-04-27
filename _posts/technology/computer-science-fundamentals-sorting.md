@@ -215,6 +215,163 @@ function quickSort(array) {
 }
 ```
 
+## Heap Sort
+
+A heap is an array that represents a tree data structure and has to be sorted in a way to represent that tree. Priority queues are often represented as heaps and often those they are used interchangeably...
+
+Binary heaps can be translated into a binary tree but they have some differences:
+
+- A binary heap is an array, whlie a BST is made up of Node objects, usually.
+- BSTs have a strict order where everything on the left of the parent is smaller and everything on the right is larger. Binary heaps dont follow this, the only guarantee is that the parent is greater than its children.
+- You can do an in-order traversal of a BST to get a sorted list but not for a binary heap.
+- A binary heap is a complete binary tree which means all children of each node are as full as possible, where the left side gets filled first.
+
+To represent a binary tree as an array, you start at the root -> index 0. Then the left child is at 2n + 1 and the right is 2n + 2, where n is the index of the parent node.
+
+There are two kinds of binary heaps: max and min heaps. This is why priority queues are usually binary heaps: you can get the larget number in a max heap pretty easily. Heapsort works this way: you make a priority queue and remove one item at a time and stick it at the end.
+
+Heapsort works like this:
+
+- Make the array a max heap.
+- At this point, the largest item is stored at the root of the heap.
+- Replace it with the last item of the heap followed by reducing the size of heap by 1.
+- Heapify the root of tree (the root shoud have a new value from above step).
+- Repeat until heap size is > 0.
+
+```
+//initial array
+[5, 3, 2, 10, 1, 9, 8, 6, 4, 7]
+
+//heapify() first call
+start at midpoint, index 5 value 9.
+left child (2n+1) index 11 and right child (2n+2) index 12 are out of bounds.
+so move on.
+
+//heapify() second call
+go down one index to index 4 value 1.
+left child is index 9 value 7, right chlid is index 10 out of bounds
+swap index 4 and index 9
+[5, 3, 2, 10, 7, 9, 8, 6, 4, 1]
+call heapify() on index 9, whch does nothing
+
+...
+
+[10, 7, 9, 6, 5, 2, 8, 3, 4, 1]
+you'll eventually have a heap like aboveand can start dequeuing your elements and sort your array.
+
+Swap 10 and 1
+[1, 7, 9, 6, 5, 2, 8, 3, 4, 10]
+call heapify on index 0
+left child is index 1 value 7, right child is index 2 value 9
+swap with index 2
+[9, 7, 1, 6, 5, 2, 8, 3, 4, 10]
+
+call heapify on index 2
+left child is index 5 value 2, right child is index 6 value 8
+8 is larger, swap with index 2
+[9, 7, 8, 6, 5, 2, 1, 3, 4, 10]
+call heapifiy on index 6, does nothing since children are out of bounds
+
+Swap 9 and 4 (beginning and length - 2 since last element is already largest)
+[4, 7, 8, 6, 5, 2, 1, 3, 9, 10]
+call heapify on index 0
+Continue swapping the first element (the root) and last element of the heap
+and then call heapify on element 0
+After all these iterations, the array will be sorted
+```
+
+Implementation:
+
+```
+const heapSort = array => {
+  array = createMaxHeap(array);
+  let temp;
+  let heapSize = array.length;
+
+  for (let i = array.length - 1; i > 0; i--) {
+    temp = array[0];
+    array[0] = array[i];
+    array[i] = temp;
+    heapSize--;
+    heapify(array, 0, heapSize);
+  }
+  return array;
+};
+
+const createMaxHeap = array => {
+  for (let i = Math.floor(array.length /2); i >= 0; i--) {
+    heapify(array, i, array.length);
+  }
+  return array;
+};
+
+const heapify = (array, index, heapSize) => {
+  const left = 2*index + 1;
+  const right= 2*index + 2;
+  let largestValueIndex = index;
+
+  if (heapSize > left && array[largestValueIndex] < array[left]) {
+    largestValueIndex = left;
+  }
+
+  if (heapSize > right && array[largestValueIndex] < array[right]) {
+    largestValueIndex = right;
+  }
+
+  if (largestValueIndex !== index) {
+    const temp = array[index];
+    array[index] = array[largestValueIndex];
+    array[largestValueIndex] = temp;
+    heapify(array, largestValueIndex, heapSize);
+  }
+
+};
+```
+
+## Radix Sort
+
+Radix Sort is a sorting algorithm that takes advantage of the fact that integers have a finite number of bits. In radix sort, we iterate through each digit of the number, grouping numbers by each digit. For example if we have an array of integers, we might first sort them by the first digit so that all numbers that start with 1s are grouped together. Then we sort each of these groupings by the next digit. Unlike the other sorting algorithms that do comparisons and perform at best O(n log(n)), radix sort has a runtime of O(kn), where n is the number of items in the array and k is the number of passes in the sorting algorithm.
+
+```
+unction getDigit(number, place, longestNumber) {
+  const string = number.toString();
+  const size = string.length;
+  const mod = longestNumber - size;
+
+  return string[place-mod] || 0;
+}
+
+function findLongestNumber (array) {
+  let longest = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    const currentLength = array[i].toString().length;
+    longest = currentLength > longest ? currentLength : longest;
+  }
+  return longest;
+}
+
+function radixSort(array) {
+  const longestNumber = findLongestNumber(array);
+  const buckets = Array.from({length: 10}, () => []);
+
+  for (let i = longestNumber - 1; i >= 0; i--) {
+    while (array.length) {
+      const current = array.shift();
+      buckets[getDigit(current, i, longestNumber)].push(current);
+    }
+    for (let j = 0; j < 10; j++) {
+      while (buckets[j].length) {
+        array.push(buckets[j].shift());
+      }
+    }
+  }
+
+
+  return array
+}
+```
+
 ## Greedy Algorithms
 
 Greedy ALgorithms always make the locally optimal choice without considering the big picture. Greedy algorithms are not always optimal. However, there is a time and a place for greedy algorithms: when your data set is too big that you can't think of all the different scenarios because its just computationally too much, so its better to have a solution rather than no solution.

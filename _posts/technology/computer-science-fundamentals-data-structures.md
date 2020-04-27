@@ -56,6 +56,8 @@ LinkedList is made of a bunch of nodes that point to the next one in the list. E
 
 And that's the tradeoff between LinkedList and ArrayList: LinkedList's adds and deletes are O(1) but the gets are O(n); ArrayList's adds and deletes are O(n) but the gets are O(1).
 
+Applications: Least Recently Used Cache, Hash Tables often use linked lists to handle collisions.
+
 ```
 class Node {
   constructor(value) {
@@ -198,7 +200,7 @@ class Tree {
 
 Hash Tables are key value stores and we use them to implement maps and/or sets. We use the key itself to be the index of where to find it in memory. O(1) lookups, delets, and adds. You apply key on a hashing function (like MD5, SHA1, or one of your invention) which converts it to an addressable space.
 
-There are a couple problems wiht hash tables:
+There are a couple problems with hash tables:
 
 - It is not useful for something with order because your addresses won't have any idea of order.
 - You need a lot of memory space if you want to avoid collisions.
