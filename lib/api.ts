@@ -33,19 +33,22 @@ export const getPostsFromDirectory = (directory) => {
     const fullPath = join(currentDirectory, file);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
-    const trimmedSnippet = data.snippet.substr(0, 160);
-    const snippet =
-      trimmedSnippet.substr(
-        0,
-        Math.min(trimmedSnippet.length, trimmedSnippet.lastIndexOf(' '))
-      ) + '...';
 
-    postsWithData.push({
-      path: `/blog/${directory.toLowerCase()}/${parse(file).name}`,
-      title: data.title,
-      date: data.date,
-      snippet,
-    });
+    if (!data.hidden) {
+      const trimmedSnippet = data.snippet.substr(0, 160);
+      const snippet =
+        trimmedSnippet.substr(
+          0,
+          Math.min(trimmedSnippet.length, trimmedSnippet.lastIndexOf(' '))
+        ) + '...';
+
+      postsWithData.push({
+        path: `/blog/${directory.toLowerCase()}/${parse(file).name}`,
+        title: data.title,
+        date: data.date,
+        snippet,
+      });
+    }
   });
 
   return postsWithData.sort((a, b) => +new Date(b.date) - +new Date(a.date));
