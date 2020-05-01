@@ -13,7 +13,7 @@ import {
 export default function () {
   return (
     <StyledPortfolioContainer>
-      <StyledH3>Projects</StyledH3>
+      <StyledH3>Portfolio</StyledH3>
 
       <StyledPortfolioDataContainer>
         <div>
