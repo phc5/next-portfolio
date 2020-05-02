@@ -77,7 +77,11 @@ const StyledPostBody = styled.div`
   }
 
   pre {
+    background: blueviolet;
+    border-radius: ${spacing[2]};
     overflow: scroll;
+    padding: ${spacing['4']};
+
     code {
       font-size: ${fontSize.xxs};
       white-space: pre-wrap;
