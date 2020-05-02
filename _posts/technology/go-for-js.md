@@ -208,6 +208,19 @@ fmt.Println(*p) // read i through pointer[]
 *p = 21         // set i through pointer p
 ```
 
+Pointer type definitions are indicated with a \* next to the type name
+
+- indicate that the variable will point to a memory location.
+- ex) `var namePointer *string`
+
+Pointer variable values are visible with a \* next to the variable name
+
+- ex) `var nameValue = *namePointer // this will give you an address like 0xc000010200`
+
+To read through a variable to see the pointer address use a & next to the pointer variable name
+
+- ex) `var nameAddress = &namePointer`
+
 ### Arrays
 
 The type [n]T is an array of n values of type T.
