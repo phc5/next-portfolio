@@ -1,7 +1,7 @@
 ---
 title: 'Go for JS'
 date: '2020-05-01'
-snippet: 'Notes taken while I went through the Go docs for the first time and some code samples where I practice writing Go!'
+snippet: 'Notes taken while I went through the Go docs for the first time and the Front End Masters course Go For JS. I also have some code samples where I practice writing Go!'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
@@ -10,7 +10,7 @@ tag: 'Technology'
 
 ## Go for JS
 
-Go has fast compile time, lots in common with C, reduces complexity of C, and blazingly fast build time.
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. It is a statically typed, compiled programming language designed at Google. It is syntactically similar to C, but with built-in memory safety, garbage collection, structural typing and concurrency.
 
 Features:
 
