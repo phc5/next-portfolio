@@ -17,7 +17,7 @@ export default function () {
         <div>
           <StyledTechDetailsTitle>Day-to-day</StyledTechDetailsTitle>
           <StyledTechDetailsParagraph>
-            JavaScript, React, Next.js, GraphQL, CSS, AWS, .NET, and Node.js.
+            JavaScript, React, Next.js, GraphQL, TypeScript, CSS, AWS, .NET, and Node.js.
           </StyledTechDetailsParagraph>
         </div>
         <div>
@@ -25,7 +25,7 @@ export default function () {
             Learning and playing with
           </StyledTechDetailsTitle>
           <StyledTechDetailsParagraph>
-            Typescript, Rx.js, Python, Flutter, Animations, and many more.
+            Go, Rx.js, Python, Flutter, Animations, and many more.
           </StyledTechDetailsParagraph>
         </div>
       </StyledTechDetailsContainer>
