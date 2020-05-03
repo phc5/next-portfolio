@@ -430,6 +430,43 @@ The above code scales v.X and v.Y by 10 and returns the sqrt of x<sup>2</sup> + 
 
 But if you remove the pointer declaration on Scale to (v Vertex), you'll notice the result is 5. This is because it is operating on the copy of the oriignal Vertex values (3,4) and not (30,40). The Scale method must have a pointer receiver to change the Vertex value that was scaled up by 10.
 
+### Interfaces
+
+An interface is a list of methods that are going to describe behavior of particular types. If you think of structs as a set of properties that define a type, interfaces can be thought of as a set of methods that define a type. In other words, an interface contains a list of function signatures, describing the behavior of other types.
+
+### Routes
+
+When you write a Go webapp, you need to pick web middleware and a multiplexer to handle routing. To set up routes in Go, you can use the `net/http` package that comes standared with Go. There are other packagse that handle multiplexing in Go: the job of these packages is to match the incoming URL of each request against a list of patterns you described in your code.
+
+In the `net/http` package, ServeMux is the HTTP request multiplexer that is used to handle the URL matching of each incoming request against your registered patterns and calls a handler that matches the pattern.
+
+When you define a route using the `net/http` package, you define it like this:
+
+```
+package main
+
+import (
+  "fmt"
+  "net/http"
+)
+
+func homeHandler(res http.ResponseWriter, req *http.Request) {
+  fmt.Fprint(res, "This is home!")
+}
+
+func aboutHandler(res http.ResponseWriter, req *http.Request) {
+  fmt.Fprint(res, "This is about!")
+}
+
+func main() {
+  http.HandleFunc("/", homeHandler)
+  http.HandleFunc("/about/", aboutHandler)
+
+  log.Fatal(http.ListenAndServe(":3000", nil))
+  fmt.Println("Listening on port 3000")
+}
+```
+
 ### Packages
 
 You can create your own packages if you have functions that you want to reuse. All you have to do is create a separate file and name the function with a capital letter and comment it. For example:
@@ -471,3 +508,49 @@ func TestAdd(t *testing.T) {
   }
 }
 ```
+
+### Error Handling
+
+Errors indicate that something bad happened, but it might be possible to continue running the program.
+
+log.Fatalln(err) logs your error somewhere.
+
+Panics happen at run time and occurs when something happened that was fatal to the program and stops its execution.
+
+Recover tells Go what to do when the applications panics.
+
+- Recover must be paired with defer, which will fire even after a panic.
+
+```
+package main
+
+import "fmt"
+
+func recoverFromPanic() {
+  if r := recover(); r != nil {
+    fmt.Println("We're recovering...")
+    fmt.Prinln(r)
+  }
+}
+
+func panicExample(n int) {
+  defer recoverFromPanic()
+  for i < n {
+    if i == 1 {
+      panic("PANIC!!!!!")
+    }
+  }
+}
+
+func main() {
+  panicExample(2)
+}
+```
+
+### Concurrency
+
+A Goroutine is a lightweight thread managed by the Go runtime that allows Go to asynchronously fire off a lot of different tasks in a streamlined way. To use goroutines, just place go in front of a function call. It will tell Go to spin up a new thread to do run that function.
+
+### Final Thoughts
+
+My first experience using Go was awesome. Because Go is strongly typed, I get immediate feedback if I'm doing something wrong and I can also find function signatures and definitions just by hovering over the variables. On top of that, I can also use `go doc` in the terminal to quickly look up documentation,
