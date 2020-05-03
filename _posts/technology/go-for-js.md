@@ -553,4 +553,4 @@ A Goroutine is a lightweight thread managed by the Go runtime that allows Go to 
 
 ### Final Thoughts
 
-My first experience using Go was awesome. Because Go is strongly typed, I get immediate feedback if I'm doing something wrong and I can also find function signatures and definitions just by hovering over the variables. On top of that, I can also use `go doc` in the terminal to quickly look up documentation,
+My first experience using Go was awesome. Because Go is strongly typed, I get immediate feedback if I'm doing something wrong and I can also find function signatures and definitions just by hovering over the variables. On top of that, I can also use `go doc` in the terminal to quickly look up documentation. I definitely have more to explore and am wondering how I can use Go in combination with React. I'm definitely looking forward to learning more about Go!
