@@ -77,7 +77,7 @@ const StyledPostBody = styled.div`
   }
 
   pre {
-    background: #701ac099;
+    background: #2f4f4f;
     border-radius: ${spacing[2]};
     overflow: scroll;
     padding: ${spacing['4']};
