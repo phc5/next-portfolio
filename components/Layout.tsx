@@ -23,7 +23,7 @@ const StyledMinHeightContainer = styled.div`
 const StyledContentGrid = styled.div`
   display: grid;
   grid-gap: ${spacing['8']};
-  max-width: 64rem;
+  max-width: 45rem;
   padding: 0 ${spacing['8']} ${spacing['8']} ${spacing['8']};
 
   @media (min-width: ${screens.sm}) {

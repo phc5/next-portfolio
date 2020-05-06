@@ -3,8 +3,6 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import Profile from '../components/Home/Profile';
 import Experience from '../components/Home/Experience';
-import Technology from '../components/Home/Technology';
-import Portfolio from '../components/Home/Portfolio';
 
 export default () => (
   <>
@@ -18,8 +16,6 @@ export default () => (
     <Layout>
       <Profile />
       <Experience />
-      <Technology />
-      <Portfolio />
     </Layout>
   </>
 );
