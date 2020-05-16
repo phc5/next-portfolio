@@ -35,12 +35,21 @@ const StyledPostBody = styled.div`
     font-size: ${fontSize['3xl']};
     line-height: ${lineHeight.snug};
     margin: ${spacing['12']} 0 ${spacing['4']} 0;
+    text-decoration: underline;
   }
 
   h3 {
     font-size: ${fontSize['2xl']};
     line-height: ${lineHeight.snug};
     margin: ${spacing['8']} 0 ${spacing['4']} 0;
+    text-decoration: underline;
+  }
+
+  h4 {
+    font-size: ${fontSize['xl']};
+    line-height: ${lineHeight.snug};
+    margin: ${spacing['8']} 0 ${spacing['4']} 0;
+    text-decoration: underline;
   }
 
   a {
@@ -83,6 +92,7 @@ const StyledPostBody = styled.div`
     padding: ${spacing['4']};
 
     code {
+      background: initial;
       font-size: ${fontSize.xxs};
       white-space: pre-wrap;
 
@@ -90,6 +100,24 @@ const StyledPostBody = styled.div`
         font-size: ${fontSize.base};
         white-space: unset;
       }
+    }
+  }
+
+  code {
+    background: #cbd5e044;
+  }
+
+  table {
+    width: 100%;
+
+    th {
+      background: #cbd5e044;
+    }
+
+    th,
+    td {
+      border: 1px solid ${colors.text};
+      text-align: center;
     }
   }
 `;
