@@ -8,13 +8,13 @@ author:
 tag: 'Technology'
 ---
 
-Rust is a language that empowers developers to build reliable and efficient software. It is performant, reliable, and developer-friendly. You can create command line tools, web apps, servers, and embedded systems all using Rust.
+Rust is a language that empowers developers to build reliable and efficient software. It is performant, reliable, and developer-friendly. You can create command line tools, web apps, servers, and embedded systems.
 
 ## Variables
 
-By default variables are immutable, but you have option to make them mutable. If you have an immutable variable `let x = 5;` and try to change it later down the line, Rust will throw a compile-time error because this situation can lead to bugs. In Rust, the compiler guarantees that when you state that a value won't change, it will not change.
+By default variables are immutable, but you the have option to make them mutable. If you have an immutable variable `let x = 5;` and try to change it, Rust will throw a compile-time error because this situation can lead to bugs. In Rust, the compiler guarantees that when you state that a value won't change, it will not change.
 
-If you do want to make your variables mutable, you can just ad the `mut` keyword in front of the variable name like this: `let mut x = 5;`. Later down in your code, you can mutate this variable like this `x = 10;`.
+If you do want to make your variables mutable, you can just add the `mut` keyword in front of the variable name like this: `let mut x = 5;`. Later down in your code, you can mutate this variable like this `x = 10;`.
 
 ### Shadowing
 
@@ -30,7 +30,7 @@ fn main() {
 }
 ```
 
-Shadowing is different that the `mut` keyword because if you try to shadow without the `let` keyword, you will get a compile-time error. By using `let` we are creating a new variable again and therefore can also change the type of the value while using the same variable name.
+Shadowing is different than the `mut` keyword because if you try to shadow without the `let` keyword, you will get a compile-time error. By using `let` we are creating a new variable again and therefore can also change the type of the value while using the same variable name.
 
 ```
 fn main() {
@@ -39,7 +39,7 @@ fn main() {
 }
 ```
 
-Shadowing is very useful for developers since we don't have to create new variables and new names like `strLength`; we can simply reuse the variable. If you had a `mut` in front of the variable name, this would through a compile-time error since we are not allowed to change a variables type when mutating.
+Shadowing is very useful for developers since we don't have to create new variables and new names like `strLength`. We can simply reuse the variable. If you had a `mut` in front of the variable name, this would throw a compile-time error since we are not allowed to change a variable's type when mutating.
 
 ### Data Types
 
@@ -55,7 +55,7 @@ Rust has a number of different data types that can be split up into two subsets:
 
 A scalar represents a single value. Rust has four scalar types: integers, floats, booleans, and characters.
 
-Integers are numbers without the fractional/decimal component. They can be either signed or unsigned and have a few variants:
+Integers are numbers without the fractional component. They can be either signed or unsigned and have a few variants:
 
 | Length | Signed | Unsigned |
 | ------ | ------ | -------- |
@@ -71,7 +71,7 @@ Floats have two variants: `f32` and `f64`. The default is `f64`.
 
 Booleans can only have two possible values: `true` or `false`. You can specify a boolean using the `bool` keyword.
 
-Characters are Rust's most primirtive alphabetic type. You initialize a character via single-quotes as a opposed to double-quotes which is reserved for Strings. Rust's `char` type represents a Unicode Scalar Value which encomposses a lot more than just ASCII.
+Characters are Rust's most primitive alphabetic type. You initialize a character via single-quotes as a opposed to double-quotes which is reserved for Strings. Rust's `char` type represents a Unicode Scalar Value which encomposses a lot more than just ASCII.
 
 #### Compound Types
 
@@ -95,7 +95,7 @@ There are a couple ways to access tuples:
   println!("These are the values in the tuple {}, {}, and {}", x, y, one);
 ```
 
-This example is contrived but notice the underscore. I tried to just destructure the first two elements, but the compiler threw an error telling me it `expected a tuple with 3 elements, found one with 2 elements`. So if you are not using an element, you can denote it via an underscore.
+This example is contrived but notice the underscore. I tried to destructure the first two elements, but the compiler threw an error telling me it `expected a tuple with 3 elements, found one with 2 elements`. So if you are not using an element, you can denote it via an underscore.
 
 An array is another way to store a collection of values, but unlike tuples, elements in an array must be the same type. Arrays in Rust are different from arrays in JavaScript because Rust arrays are defined with a fixed length: once defined they can't grow or shrink in size. Rust has a Vector type which behaves more like JavaScript arrays in that it is allowed to grow and shrink in size.
 
