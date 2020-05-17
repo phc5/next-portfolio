@@ -100,3 +100,150 @@ This example is contrived but notice the underscore. I tried to destructure the 
 An array is another way to store a collection of values, but unlike tuples, elements in an array must be the same type. Arrays in Rust are different from arrays in JavaScript because Rust arrays are defined with a fixed length: once defined they can't grow or shrink in size. Rust has a Vector type which behaves more like JavaScript arrays in that it is allowed to grow and shrink in size.
 
 The great thing about arrays is that it has a fixed length, so if you try to access an index that is out of bounds, Rust will panic and throw a runtime error. Notice this is not a compilation error. This is what is so great about Rust: many low-level languages don't throw runtime errors when an out-of-bounds index is accessed. Rust protects the developer from making these kinds of mistakes by exiting the program rather than allowing the invalid memory access.
+
+### Functions
+
+Functions are pervasive in Rust code. This means that you can define your functions before and after your `main()`. Rust doesn't care where you define your functions, as long as they are defined somewhere.
+
+When it comes to function signatures, you must declare the type of each argument. Requiring these type annotations was a design choice by the Rust team. It also means that the compiler almost never needs define them in other places in your code to figure out what these arguments mean.
+
+#### Statements vs Expressions
+
+Statements are instructions that perform some action and do not return a value.
+
+Expressions are instructions that evalute to a resulting value. Expressions do not end in a semicolon. If you add a semicolon to the end of an expression, you turn it into a statement, which will not return a value. See this example below:
+
+```
+fn main() {
+  let x = 10;
+
+  let y = {
+    let x = 5;
+    x + 3
+  }
+}
+```
+
+The `{}` denotes a block that is used to create new scopes: an expression. The above expression evaluates to 8 and gets bound to y.
+
+#### Functions with Return Values
+
+Functions can return values to the code that called them. To return a value from a function you have to declare their type after an arrow `->`. The return value in a function is either the final expression in the body of the function or where the `return` keyword is used.
+
+### If Statements
+
+If statements are some of the most basic building blocks of programming langauges. In Rust, the syntax is much like JavaScript:
+
+```
+fn main() {
+  let x = 5;
+
+  if x < 3 {
+    println!("Less than 3");
+  } else {
+    println!("Greater than 3");
+  }
+}
+```
+
+There a few caveats coming from JavaScript. First, there are no parens around the condition that is evaluated in the if. Second, the condition in the if block must evaluate to a boolean, otherwise Rust will throw an error. Rust will not automatically coerce non-boolean values into a boolean unlike JavaScript.
+
+### Loops
+
+There are three kinds of loops in Rust: `loop`, `while`, and `for`.
+
+- `loop` will loop through the block continously until we explicitly stop the program via the `break` keyword or manually in the terminal via `Ctrl + C`.
+- `while` will loop through the block continously until the condition ceases to be true or you call `break`.
+- `for` will loop through a collection.
+
+```
+fn main() {
+  let a = [10,20,30,40,50]; // remember this is a fixed sized array and can't grow or shrink
+
+  for element in a.iter() {
+    println!("Value is {}", element);
+  }
+}
+```
+
+### Ownership
+
+All programs have to manage the computer's memory. Some languages have automatic garbage collection while others give the developer the power to allocate and free memory as they see fit. Rust doesn't fit into either of these categories. In Rust, memory is managed through a system of ownership with a set of rules that are checked at compile time. With ownership comes a bit more complexity, but according to the docs, as you become more experienced, we'll be able to develop safe and efficient code.
+
+#### The Stack and Heap
+
+An aside before going into ownership. The stack and heap are two parts of memory that are available for our code to use at runtime. In langauges like JavaScript, we didn't have to worry about the stack and heap but in a system programming language like Rust, we have to decide whether a value is on the stack or the heap.
+
+The stack is fast because of the way it stores and accesses data. When adding data to the stack, you just push it to top of the stack and when accessing a value from the stack, you just pop it off from the top of the stack. Another property of the stack is its fixed size.
+
+On the other hand, the heap is used for storing data with an unknown size at compile time or if its size might change. When you put data on the heap, you ask for the amount of space needed and the OS will find an empty spot in the heap that is big enough to store your data and returns a pointer to that location.
+
+#### Ownership Rules
+
+1. Each value in Rust has a variable that is called its owner.
+2. There can only be one owner at a time.
+3. When the owner goes out of scope, the value will be dropped.
+
+```
+{
+  let s = String::from("hello");  // s is valid within this block
+  // do something with s
+}                                 // s is no longer valid (out of scope and garbage collected)
+```
+
+When a variable goes out of scope, Rust calls a function called `drop` automatically at the closing curly bracket.
+
+```
+{
+  let s1 = String::from("hello");
+  let s2 = s1;
+
+  println!("{}, world!", s1);
+}
+```
+
+The above line will cause an error: `use of moved value: s1`. This happens because Rust no longer considers `s1` to be valid. When we assign `s1` to `s2`, the String data is copied, meaning we copy the pointer, the length, and the capacity and not the data on the heap itself. Additionally, Rust also invalidates `s1` by doing what's called a `move`. Now when the variables are out of scope, Rust will free `s2` from memory and doesn't have to worry about `s1`.
+
+```
+{
+  let x = 5;
+  let y = x;
+
+  println!("X = {}, Y = {}" x, y);
+}
+```
+
+Now why does this work? The size is known at compile time and values with known sizes at compile time are stored on the stack. Some types that fall under this are:
+
+- all integer types
+- boolean
+- floats
+- characters
+- tuples that strictly contain any of the types above
+
+#### Ownership and Functions
+
+```
+fn main() {
+  let s = String::from("hello");  // s is in scope
+
+  takes_ownership(s);             // s's value moves into this function
+                                  // s is no longer valid in this scope
+
+  let x = 5;                      // x is in scope
+
+  makes_copy(x);                  // x's value moves into this function
+                                  // x is still valid here
+
+}                                 // x goes out of scope, then s
+
+fn takes_ownership(some_string: String) {
+  println!("{}", some_string);
+}                                 // some_string goes out of scope and drop is called
+
+fn makes_copy(some_integer: i32) {
+  println!("{}", some_integer);
+}                                 // some_integer goes out of scope
+```
+
+Ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. Rust gives you control over your memory usage in the same way as other systems programming languages but the owner of data automatically cleans up that data when the owners goes out of scope.
