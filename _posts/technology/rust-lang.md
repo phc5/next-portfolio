@@ -362,22 +362,12 @@ The `area()` method is on the Rectangle struct, but we also defined another meth
 Enums allow you to define a type of enumerating its possible values. Enum values can only be one of the variants it describes. Here is an example using IP addresses which has two variants: IPv4 and IPv6.
 
 ```
-enum IpAddrType {
-  V4,
-  V6,
+enum IpAddr {
+  V4(String),
+  V6(String),
 }
 
-struct IpAddr {
-  kind: IpAddrType,
-  address: String,
-}
+let home = IpAddr::V4(String::from("127.0.0.1"));
 
-let home = IpAddr {
-  kind: IpAddrType::V4,
-  address: String::from("127.0.0.1"),
-}
-let loopback = IpAddr {
-  kind: IpAddrType::V6,
-  address: String::from("::1"),
-}
+let loopback = IpAddr::V6(String::from("::1"));
 ```

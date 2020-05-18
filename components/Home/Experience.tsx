@@ -20,7 +20,7 @@ export default function () {
       <StyledP>
         Day-to-day I use JavaScript, React, Next.js, GraphQL, TypeScript, CSS,
         AWS, .NET, and Node.js. But I don't limit myself to just these
-        technologies. On my free time, I am currently playing with Go and
+        technologies. On my free time, I am currently playing with Rust and
         Flutter!
       </StyledP>
 
