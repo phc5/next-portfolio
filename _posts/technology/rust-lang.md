@@ -168,7 +168,7 @@ fn main() {
 
 ### Ownership
 
-All programs have to manage the computer's memory. Some languages have automatic garbage collection while others give the developer the power to allocate and free memory as they see fit. Rust doesn't fit into either of these categories. In Rust, memory is managed through a system of ownership with a set of rules that are checked at compile time. With ownership comes a bit more complexity, but according to the docs, as you become more experienced, we'll be able to develop safe and efficient code.
+All programs have to manage the computer's memory. Some languages have automatic garbage collection while others give the developer the power to allocate and free memory as they see fit. Rust doesn't fit into either of these categories. In Rust, memory is managed through a system of ownership with a set of rules that are checked at compile time. With ownership comes a bit more complexity, but according to the docs, as you become more experienced, we'll be able to more easily develop safe and efficient code.
 
 #### The Stack and Heap
 
@@ -223,6 +223,8 @@ Now why does this work? The size is known at compile time and values with known 
 
 #### Ownership and Functions
 
+The semantics for passing a value to a function are simliar to those for assigning a value to a variable. When you pass a variable to a function, the variable will move/copy just as assignment does. Return values also transfer ownership.
+
 ```
 fn main() {
   let s = String::from("hello");  // s is in scope
@@ -246,4 +248,136 @@ fn makes_copy(some_integer: i32) {
 }                                 // some_integer goes out of scope
 ```
 
+The ownership of a variable follows this pattern: assigning a value ot another variables moves it; when a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless the data has been moved to be owned by another variable.
+
 Ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. Rust gives you control over your memory usage in the same way as other systems programming languages but the owner of data automatically cleans up that data when the owners goes out of scope.
+
+#### References and Borrowing
+
+The `&s1` syntax lets us create a reference that refers to the value of `s1` but does not own it. Likewise, the value it points to will not be dropped when the reference goes out of scope.
+
+```
+fn calculate_length(s: &String) -> usize {  // s is a reference to some String
+  s.len()
+}                                           // s goes out of scope, but doesn't drop the String it
+                                            // references since it does own it.
+
+```
+
+The example above is called borrowing: references as function parameters.
+
+Borrowed and referenced values are immutable unless you make them mutable references via `&mut s1`. Once caveat is that you can only have one mutable reference in a particular scope. This was a design choice by Rust to prevent data races at compile time. A data race is when two or more pointers try to access the same data at the same time, at least one of the pointers is writing to the data, and/or there is not mechanism used to synchronize access to the data. You can have multiple mutable references in a function by creating a new scope within that function like this:
+
+```
+fn some_function() {
+  let mut s = String::from("testing");
+  {
+    let s1 = &mut s;
+  }
+
+  let s2 = &mut s;
+}
+```
+
+Another big caveat is you can't have a mutable reference in the same scope as immutabale references. This is another design choice by Rust to make sure the data is not changed for those reading from immutable references.
+
+```
+fn some_function() {
+  let mut s = String::from('testing');
+  let s1 = &s;      // OK
+  let s2 = &s;      // OK
+  let s3 = &mut s;  // NOT OK
+}
+
+```
+
+### Structs
+
+A struct is a custom data type that lets you name and package together multiple related values that make a meaningful group.
+
+```
+struct Note {
+  id: String,
+  title: String,
+  body: String,
+  user_id: u32,
+}
+
+let note1 =  Note {
+  id: 1,
+  title: String::from("Test Note"),
+  body: String::from("This is a test note.),
+  user_id: 123,
+}
+
+let mut note2 = Note {
+  id: 2,
+  title: String::from("Test Note 2"),
+  body: String::from("This is a test note 2."),
+  user_id: note1.user_id, // we can also just spread note1 here(...note1) to get the remaining fields not explicitly set
+}
+
+note2.title = String::from("Edited Note");
+```
+
+If the struct is mutable, then we can change a value by using dot notation and assign a value to a particular field. The entire struct has to be mutable; Rust doesn't allow only certain fields to be mutable.
+
+You can add methods to a struct. They are like functions but defined within the context of a struct. Their first parameter is always self, which is the instance of the struct the method is being called on.
+
+```
+struct Rectangle {
+  width: u32,
+  height: u32,
+}
+
+impl Rectangle {
+  fn area(&self) -> u32 {
+    self.width * self.height
+  }
+
+  fn square(size: u32) -> Rectangle {
+    Rectangle {
+      width: size,
+      height: size,
+    }
+  }
+}
+
+fn main() {
+  let rect1 = Rectangle {
+    width: 15,
+    height: 20,
+  };
+
+  let square1 = Rectangle::square(4);
+
+  println!("{}", rect1.area());
+}
+```
+
+The `area()` method is on the Rectangle struct, but we also defined another method called `square()`. This method is called an associated function because it is associated with the struct. Notice how it doesn't have an instance of the struct to work with in the parameter. Associated functions are usually used as constructors that will return a new instance of the struct.
+
+### Enums
+
+Enums allow you to define a type of enumerating its possible values. Enum values can only be one of the variants it describes. Here is an example using IP addresses which has two variants: IPv4 and IPv6.
+
+```
+enum IpAddrType {
+  V4,
+  V6,
+}
+
+struct IpAddr {
+  kind: IpAddrType,
+  address: String,
+}
+
+let home = IpAddr {
+  kind: IpAddrType::V4,
+  address: String::from("127.0.0.1"),
+}
+let loopback = IpAddr {
+  kind: IpAddrType::V6,
+  address: String::from("::1"),
+}
+```
