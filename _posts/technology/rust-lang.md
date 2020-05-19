@@ -12,7 +12,7 @@ Rust is a language that empowers developers to build reliable and efficient soft
 
 ## Variables
 
-By default variables are immutable, but you the have option to make them mutable. If you have an immutable variable `let x = 5;` and try to change it, Rust will throw a compile-time error because this situation can lead to bugs. In Rust, the compiler guarantees that when you state that a value won't change, it will not change.
+By default variables are immutable, but you have the option to make them mutable. If you have an immutable variable `let x = 5;` and try to change it, Rust will throw a compile-time error because this situation can lead to bugs. In Rust, the compiler guarantees that when you state that a value won't change, it will not change.
 
 If you do want to make your variables mutable, you can just add the `mut` keyword in front of the variable name like this: `let mut x = 5;`. Later down in your code, you can mutate this variable like this `x = 10;`.
 
