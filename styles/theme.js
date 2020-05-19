@@ -1,5 +1,5 @@
 export const colors = {
-  backgroundColor: '#121212',
+  backgroundColor: '#0a0a0a',
   linkHover: '#b794f4',
   text: '#cbd5e0',
 };
