@@ -4,10 +4,10 @@ import { fontWeight, spacing, colors } from '../../styles/theme';
 
 const Header = () => (
   <StyledHeaderContainer>
-    <Link href="/">
+    <Link href="/" passHref>
       <StyledHeaderLink>Home</StyledHeaderLink>
     </Link>
-    <Link href="/blog">
+    <Link href="/blog" passHref>
       <StyledHeaderLink>Blog</StyledHeaderLink>
     </Link>
     <StyledHeaderLink
