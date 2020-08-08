@@ -12,10 +12,10 @@ export default function () {
     <StyledExperienceContainer>
       <StyledP>
         I am a software engineer who specializes in UI development with
-        JavaScript. I am currently a Front End Engineer at AWS working on ways
-        to help startups get up and running in the cloud. Along with my passion
-        for learning new technologies and writing code, I love to spend time
-        with my dog, surf, workout via calisthenics, and play video games.
+        JavaScript. I currently work as a Front End Engineer at AWS Activate.
+        Along with my passion for learning new technologies and writing code, I
+        love to spend time with my dog, surf, workout via calisthenics, and play
+        video games.
       </StyledP>
 
       <StyledP>

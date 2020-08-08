@@ -1,7 +1,7 @@
 ---
 title: 'Git Rebase and Squash'
 date: '2020-08-07'
-snippet: 'At my previous workplace, I used a git GUI to handle all my git operations. Today, I found out and used some git commands that I hadn't personally used before.'
+snippet: 'At my previous workplace, I used a git GUI to handle all my git operations. Today, I found out and used some git commands that I had not personally used before.'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
