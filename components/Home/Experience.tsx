@@ -12,16 +12,16 @@ export default function () {
     <StyledExperienceContainer>
       <StyledP>
         I am a software engineer who specializes in UI development with
-        JavaScript. Along with my passion for learning new technologies and
-        writing code, I love to spend time with my dog, surf, workout via
-        calisthenics, and play video games.
+        JavaScript. I am currently a Front End Engineer at AWS working on ways
+        to help startups get up and running in the cloud. Along with my passion
+        for learning new technologies and writing code, I love to spend time
+        with my dog, surf, workout via calisthenics, and play video games.
       </StyledP>
 
       <StyledP>
         Day-to-day I use JavaScript, React, Next.js, GraphQL, TypeScript, CSS,
-        AWS, .NET, and Node.js. But I don't limit myself to just these
-        technologies. On my free time, I am currently playing with Rust and
-        Flutter!
+        AWS. But I don't limit myself to just these technologies. On my free
+        time, I am currently playing with Rust and Flutter!
       </StyledP>
 
       <StyledP>
