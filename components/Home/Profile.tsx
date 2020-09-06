@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import gsap from 'gsap';
 import {
   screens,
   spacing,
@@ -11,25 +9,6 @@ import {
 } from '../../styles/theme';
 
 function Profile() {
-  const imageRef = useRef(null);
-  const nameRef = useRef(null);
-  const titleRef = useRef(null);
-
-  useEffect(() => {
-    if (imageRef && imageRef.current)
-      gsap.from(imageRef.current, {
-        duration: 1,
-        opacity: 0,
-        x: -100,
-      });
-
-    if (nameRef && nameRef.current)
-      gsap.from(nameRef.current, { duration: 1, opacity: 0, y: -100 });
-
-    if (titleRef && titleRef.current)
-      gsap.from(titleRef.current, { duration: 1, opacity: 0, y: 100 });
-  }, []);
-
   return (
     <StyledProfileContainer>
       <StyledImage
@@ -37,11 +16,10 @@ function Profile() {
         height="128"
         src="/profilepic.jpg"
         alt="Paul Chong Profile Pic"
-        ref={imageRef}
       />
       <div>
-        <StyledH1 ref={nameRef}>Paul Chong</StyledH1>
-        <StyledH2 ref={titleRef}>Software Engineer</StyledH2>
+        <StyledH1>Paul Chong</StyledH1>
+        <StyledH2>Software Engineer</StyledH2>
       </div>
     </StyledProfileContainer>
   );

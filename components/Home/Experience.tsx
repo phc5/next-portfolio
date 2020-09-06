@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import gsap from 'gsap';
 import {
   colors,
   fontSize,
@@ -10,57 +8,23 @@ import {
 } from '../../styles/theme';
 
 export default function () {
-  const aboutRef = useRef(null);
-  const hobbiesRef = useRef(null);
-  const workRef = useRef(null);
-  const contactRef = useRef(null);
-
-  useEffect(() => {
-    const timeline = gsap.timeline({ delay: 1 });
-    if (aboutRef && aboutRef.current) {
-      timeline.from(aboutRef.current, {
-        duration: 1,
-        opacity: 0,
-      });
-    }
-
-    if (hobbiesRef && hobbiesRef.current) {
-      timeline.from(hobbiesRef.current, {
-        duration: 1,
-        opacity: 0,
-      });
-    }
-
-    if (workRef && workRef.current) {
-      timeline.from(workRef.current, {
-        duration: 1,
-        opacity: 0,
-      });
-    }
-
-    if (contactRef && contactRef.current) {
-      timeline.from(contactRef.current, {
-        duration: 1,
-        opacity: 0,
-      });
-    }
-  }, []);
-
   return (
     <StyledExperienceContainer>
-      <StyledP ref={aboutRef}>
+      <StyledP>
         I am a software engineer who specializes in UI development with
-        JavaScript. I currently work as a Front End Engineer at AWS Activate and
-        build products that help startups scale and grow their businesses.
-      </StyledP>
-
-      <StyledP ref={hobbiesRef}>
+        JavaScript. I currently work as a Front End Engineer at AWS Activate.
         Along with my passion for learning new technologies and writing code, I
         love to spend time with my dog, surf, workout via calisthenics, and play
         video games.
       </StyledP>
 
-      <StyledP ref={workRef}>
+      <StyledP>
+        Day-to-day I use JavaScript, React, Next.js, GraphQL, TypeScript, CSS,
+        AWS. But I don't limit myself to just these technologies. On my free
+        time, I am currently playing with Rust and Flutter!
+      </StyledP>
+
+      <StyledP>
         Some of my work and freelance gigs include:{' '}
         <StyledLink
           href="https://www.kbb.com"
@@ -87,7 +51,7 @@ export default function () {
         .
       </StyledP>
 
-      <StyledP ref={contactRef}>
+      <StyledP>
         Contact me{' '}
         <StyledLink href="mailto:paulhyunchong@gmail.com">here</StyledLink> or
         add me on{' '}
