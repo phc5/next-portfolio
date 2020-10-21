@@ -25,7 +25,14 @@ export default function () {
       </StyledP>
 
       <StyledP>
-        Some of my work and freelance gigs include:{' '}
+        Check out some of my work:{' '}
+        <StyledLink
+          href="https://aws.amazon.com/activate/"
+          rel="nofollow noreferrer"
+          title="AWS Activate Landing Page"
+        >
+          AWS Activate,
+        </StyledLink>{' '}
         <StyledLink
           href="https://www.kbb.com"
           rel="nofollow noreferrer"
