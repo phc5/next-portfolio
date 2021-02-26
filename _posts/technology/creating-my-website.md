@@ -51,6 +51,6 @@ There are no losers here: both frameworks are awesome! And both frameworks empow
 
 So I invite you to try them both!
 
-[Gatsby](https:/www.gatsbyjs.org/)
+[Gatsby](https://www.gatsbyjs.org/)
 
-[Next](https:/www.nextjs.org/)
+[Next](https://www.nextjs.org/)
