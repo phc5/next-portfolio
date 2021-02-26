@@ -6,6 +6,7 @@ author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
 tag: 'Technology'
+
 ---
 
 ORM is any acronym for Objet Relational Mapping and allows you to write queries like SQL using an object-oriented paradigm of your preferred programming lanaguage. It allows you to turn something like this SQL statement:

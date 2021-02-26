@@ -29,8 +29,11 @@ export default ({ arrayOfPosts }) => {
           <Head>
             <title>Technology Blog | Paul Chong's Blog</title>
           </Head>
-          <BlogHeader title="Technology" />
-          <BlogBody>{posts}</BlogBody>
+
+          <BlogBody>
+            <BlogHeader title="Technology" />
+            {posts}
+          </BlogBody>
         </StyledBlogWrapper>
       </Container>
     </Layout>

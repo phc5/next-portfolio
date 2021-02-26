@@ -6,8 +6,10 @@ export default function Container({ children }) {
 }
 
 const StyledContainer = styled.div`
-  margin: 0 auto;
-  width: 100%;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 8rem;
 
   @media (min-width: ${screens.sm}) {
     padding: 0 ${spacing['5']};

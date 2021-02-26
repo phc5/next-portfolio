@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
-import ProfileV2 from '../components/Home/ProfileV2';
+import Experience from '../components/Experience/Experience';
 
-export default function Home() {
+export default function ExperiencePage() {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export default function Home() {
         />
       </Head>
       <Layout>
-        <ProfileV2 />
+        <Experience />
       </Layout>
     </>
   );
