@@ -23,25 +23,29 @@ export default ({ directories, mapOfFiles }) => {
 
   const allPosts = directories.map((directory) => {
     const posts = mapOfFiles[directory].map((post) => (
-      <StyledPostDiv key={post.title}>
-        <StyledPostDate>{post.date}</StyledPostDate>
+      <article key={post.title} className="py-6">
+        <time className="italic block" dateTime={post.date}>
+          {post.date}
+        </time>
 
         <Link href={`/blog/${directory}/[slug]`} as={post.path}>
-          <StyledPostLink>{post.title}</StyledPostLink>
+          <a className="text-lg md:text-xl lg:text-2xl hover:underline">
+            {post.title}
+          </a>
         </Link>
 
         <p>{post.snippet}</p>
-      </StyledPostDiv>
+      </article>
     ));
     return (
-      <StyledBlogTypeContainer key={directory}>
+      <div key={directory} className="my-10">
         <Link href={`/blog/${directory.toLowerCase()}`}>
-          <StyledBlogTypeLink>
+          <a className="text-3xl text-gray-900 sm:text-4xl hover:underline">
             {directory.charAt(0).toUpperCase() + directory.slice(1)}
-          </StyledBlogTypeLink>
+          </a>
         </Link>
         {posts}
-      </StyledBlogTypeContainer>
+      </div>
     );
   });
 
@@ -83,33 +87,6 @@ export async function getStaticProps() {
     },
   };
 }
-
-const StyledBlogTypeContainer = styled.div`
-  margin-bottom: ${spacing['10']};
-`;
-
-const StyledBlogTypeLink = styled.a`
-  font-size: ${fontSize['3xl']};
-  text-decoration: underline;
-
-  @media (min-width: ${screens.md}) {
-    font-size: ${fontSize['4xl']};
-  }
-
-  @media (min-width: ${screens.lg}) {
-    font-size: ${fontSize['5xl']};
-  }
-
-  :hover {
-    color: ${colors.linkHover};
-    cursor: pointer;
-  }
-`;
-
-const StyledPostDiv = styled.div`
-  margin-bottom: ${spacing['6']};
-  padding-top: ${spacing['6']};
-`;
 
 const StyledPostDate = styled.p`
   font-style: italic;

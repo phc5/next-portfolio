@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: any }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="h-screen flex overflow-hidden bg-white">
+    <div className="h-screen flex overflow-hidden">
       <Transition show={isMobileMenuOpen} className="md:hidden">
         <div className="fixed inset-0 flex z-40">
           <Transition.Child

@@ -99,7 +99,7 @@ export default function ExperienceContent({
 
       <div className="py-3 xl:pt-6 xl:pb-0">
         <h3 className="sr-only">Accomplishments</h3>
-        <div className="prose max-w-none">
+        <div className="max-w-none">
           <ul>
             {description.map((item) => (
               <li key={`${company}-${item}`} className="mb-4">
