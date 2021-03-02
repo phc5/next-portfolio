@@ -1,15 +1,12 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
-import styled from 'styled-components';
 import Layout from '../../../../components/Layout';
-import Container from '../../../../components/Post/container';
 import PostBody from '../../../../components/Post/post-body';
 import PostHeader from '../../../../components/Post/post-header';
 import PostTitle from '../../../../components/Post/post-title';
 import { getPost, getPostSlugs } from '../../../../lib/api';
 import markdownToHtml from '../../../../lib/markdownToHtml';
-import { spacing } from '../../../../styles/theme';
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -18,25 +15,25 @@ export default function Post({ post }) {
   }
   return (
     <Layout>
-      <Container>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <StyledArticle>
-              <Head>
-                <title>{post.title} | Paul Chong's Blog</title>
-              </Head>
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <>
+          <article>
+            <Head>
+              <title>{post.title} | Paul Chong's Blog</title>
+            </Head>
+            <div className="mx-auto mt-12 grid grid-cols-1 max-w-4xl px-2 sm:px-4 lg:px-8">
               <PostHeader
                 title={post.title}
                 date={post.date}
                 author={post.author}
               />
               <PostBody content={post.content} />
-            </StyledArticle>
-          </>
-        )}
-      </Container>
+            </div>
+          </article>
+        </>
+      )}
     </Layout>
   );
 }
@@ -74,7 +71,3 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
-const StyledArticle = styled.article`
-  margin-bottom: ${spacing['32']};
-`;

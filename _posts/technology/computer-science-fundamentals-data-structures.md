@@ -6,7 +6,6 @@ author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
 tag: 'Technology'
-hidden: 'true'
 ---
 
 ## Sets

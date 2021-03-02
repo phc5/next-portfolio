@@ -3,23 +3,17 @@ import {
   colors,
   fontSize,
   lineHeight,
-  maxWidth,
   spacing,
   screens,
 } from '../../styles/theme';
 
 export default function PostBody({ content }) {
   return (
-    <StyledPostBodyContainer>
+    <div>
       <StyledPostBody dangerouslySetInnerHTML={{ __html: content }} />
-    </StyledPostBodyContainer>
+    </div>
   );
 }
-
-const StyledPostBodyContainer = styled.div`
-  margin: 0 auto;
-  max-width: ${maxWidth['2xl']};
-`;
 
 const StyledPostBody = styled.div`
   font-size: ${fontSize.lg};
@@ -56,7 +50,7 @@ const StyledPostBody = styled.div`
     text-decoration: underline;
 
     :hover {
-      color: ${colors.linkHover};
+      color: rgba(59, 130, 246);
     }
   }
 

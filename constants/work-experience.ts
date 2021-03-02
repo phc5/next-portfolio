@@ -9,10 +9,9 @@ const WORK_EXPERIENCE = [
     description: [
       'I am currently a Front End Engineer at AWS Activate where I design, develop, and ship user interfaces and experiences for startups of all sizes to build, grow, and scale. I work on several applications that power AWS Activate such as the AWS Activate Console and Activate Admin CMS.',
       'Within two months of joining the team, I led the development of a feature called Tech Hub which was an integral part of the GA Launch of the AWS Activate Console. I designed an alternative solution to an outdated research document that was completed before I joined the team, collaborated with internal and external stakeholders, integrated with several external AWS services and an internal CMS, implemented and tested the feature, and launched it into production.',
-      'Improved codebase by writing front-end unit tests and integration tests for components with no test coverage and improved existing tests.',
+      'Improved code quality by writing front-end unit tests and integration tests for components with no test coverage, improved existing tests, and created new tests for new components and features.',
       'Integrated a Slack bot using AWS Chatbot and AWS Simple Notification Service (SNS) to notify engineers of critical events related to our operations.',
       'Worked with product managers and UX designers to test and push new ideas using experimentation methods such as A/B tests.',
-      'Researched and documented region failover solutions for our systems.',
     ],
     endDate: {
       displayDate: 'Present',
@@ -99,7 +98,7 @@ const WORK_EXPERIENCE = [
     company: 'SalesPad',
     companyUrl: 'https://www.salespad.com/',
     description: [
-      'Internship completed during the spring semester through summer break of my junior yea.',
+      'Internship completed during the spring semester through summer break of my junior year.',
       'Worked on package builder solution that packaged ​n​ sized items into ​k​ sized boxes (related to the Bin packing problem).',
       'Collaborated with developers, managers, and product team to learn about product and development lifecycles and built out small features.',
       'Analyzed performance, maintained, and enhanced the SalesPad application.',

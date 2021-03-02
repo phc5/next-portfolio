@@ -3,11 +3,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Layout from '../../../components/Layout';
-import Container from '../../../components/Post/container';
 import BlogBody from '../../../components/Blog/blog-body';
 import BlogHeader from '../../../components/Blog/blog-header';
 import { getPostsFromDirectory } from '../../../lib/api';
-import { spacing, colors, fontSize, screens } from '../../../styles/theme';
+import { spacing, fontSize, screens } from '../../../styles/theme';
 
 export default ({ arrayOfPosts }) => {
   const posts = arrayOfPosts.map((post) => (
@@ -24,18 +23,18 @@ export default ({ arrayOfPosts }) => {
 
   return (
     <Layout>
-      <Container>
-        <StyledBlogWrapper>
-          <Head>
-            <title>Technology Blog | Paul Chong's Blog</title>
-          </Head>
+      <StyledBlogWrapper>
+        <Head>
+          <title>Technology Blog | Paul Chong's Blog</title>
+        </Head>
 
+        <div className="max-w-7xl mx-auto mt-12 grid grid-cols-1 lg:max-w-7xl  px-2 sm:px-4 lg:px-8">
           <BlogBody>
             <BlogHeader title="Technology" />
             {posts}
           </BlogBody>
-        </StyledBlogWrapper>
-      </Container>
+        </div>
+      </StyledBlogWrapper>
     </Layout>
   );
 };
@@ -76,7 +75,6 @@ const StyledPostLink = styled.a`
   }
 
   :hover {
-    color: ${colors.linkHover};
     cursor: pointer;
   }
 `;

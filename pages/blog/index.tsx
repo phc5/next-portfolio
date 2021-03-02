@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import styled from 'styled-components';
 import Layout from '../../components/Layout';
-import Container from '../../components/Post/container';
-import BlogBody from '../../components/Blog/blog-body';
-import BlogHeader from '../../components/Blog/blog-header';
 import WarningNotification from '../../components/Notifications/WarningNotification';
 import { getMapOfFiles, getDirectories } from '../../lib/api';
-import { spacing, fontSize, colors, screens } from '../../styles/theme';
 
-export default ({ directories, mapOfFiles }) => {
+export default function BlogPage({ directories, mapOfFiles }) {
   const [isNotificationDismissed, setIsNotificationDismissed] = useState(false);
 
   useEffect(() => {
@@ -51,30 +46,31 @@ export default ({ directories, mapOfFiles }) => {
 
   return (
     <Layout>
-      <Container>
-        <div className="fixed bottom-0 right-0 m-4">
-          <WarningNotification
-            title="Under Construction"
-            message="My blog section is currently being redesigned! Sorry for the inconvenience, I will try to get this updated ASAP!"
-            stateUpdater={setIsNotificationDismissed}
-            stateValue={isNotificationDismissed}
-          />
-        </div>
+      <div className="fixed bottom-0 right-0 m-4">
+        <WarningNotification
+          title="Under Construction"
+          message="My blog section is currently being redesigned! Sorry for the inconvenience, I will try to get this updated ASAP!"
+          stateUpdater={setIsNotificationDismissed}
+          stateValue={isNotificationDismissed}
+        />
+      </div>
 
-        <div>
-          <Head>
-            <title>Blog | Paul Chong's Blog</title>
-          </Head>
+      <div>
+        <Head>
+          <title>Blog | Paul Chong's Blog</title>
+        </Head>
 
-          <BlogBody>
-            <BlogHeader title="Blog" />
-            {allPosts}
-          </BlogBody>
+        <div className="max-w-4xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
+          <div className="mb-14">
+            <h2 className="text-4xl font-bold sm:text-7xl">Blog</h2>
+          </div>
+
+          {allPosts}
         </div>
-      </Container>
+      </div>
     </Layout>
   );
-};
+}
 
 export async function getStaticProps() {
   const directories = getDirectories();
@@ -87,25 +83,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-const StyledPostDate = styled.p`
-  font-style: italic;
-`;
-
-const StyledPostLink = styled.a`
-  font-size: ${fontSize.lg};
-  text-decoration: underline;
-
-  @media (min-width: ${screens.md}) {
-    font-size: ${fontSize.xl};
-  }
-
-  @media (min-width: ${screens.lg}) {
-    font-size: ${fontSize['2xl']};
-  }
-
-  :hover {
-    color: ${colors.linkHover};
-    cursor: pointer;
-  }
-`;

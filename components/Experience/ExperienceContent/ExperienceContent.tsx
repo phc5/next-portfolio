@@ -1,6 +1,5 @@
 import React from 'react';
 import randomColor from 'randomcolor';
-import External from '../../svg/External';
 import WORK_EXPERIENCE from '../../../constants/work-experience';
 
 export default function ExperienceContent({
@@ -30,7 +29,6 @@ export default function ExperienceContent({
               rel="noopener noreferrer"
             >
               {company}
-              <External />
             </a>
           </p>
           <div className="text-sm text-gray-400">

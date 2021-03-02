@@ -7,14 +7,22 @@ export default function ExperiencePage() {
   return (
     <>
       <Head>
-        <title>Paul Chong</title>
+        <title>Work and Experience | Paul Chong</title>
         <meta
           name="description"
           content="Paul Chong is a software engineer who specializes in front-end and UI development."
         />
       </Head>
       <Layout>
-        <Experience />
+        <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
+          <div className="mb-14">
+            <h2 className="text-4xl font-bold sm:text-7xl">
+              Work and Experience
+            </h2>
+          </div>
+
+          <Experience />
+        </div>
       </Layout>
     </>
   );

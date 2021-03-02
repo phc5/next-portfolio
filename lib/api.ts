@@ -35,18 +35,11 @@ export const getPostsFromDirectory = (directory) => {
     const { data } = matter(fileContents);
 
     if (!data.hidden) {
-      const trimmedSnippet = data.snippet.substr(0, 160);
-      const snippet =
-        trimmedSnippet.substr(
-          0,
-          Math.min(trimmedSnippet.length, trimmedSnippet.lastIndexOf(' '))
-        ) + '...';
-
       postsWithData.push({
         path: `/blog/${directory.toLowerCase()}/${parse(file).name}`,
         title: data.title,
         date: data.date,
-        snippet,
+        snippet: data.snippet,
       });
     }
   });
