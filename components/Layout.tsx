@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -10,13 +10,16 @@ const Layout = ({ children }: { children: any }) => {
   const currentPath = router?.pathname;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
+  function preventHtmlScroll() {
     const htmlTag = document?.getElementsByTagName('html')[0];
     if (htmlTag && isMobileMenuOpen) {
       htmlTag.style.height = '100%';
       htmlTag.style.overflow = 'hidden';
+    } else {
+      htmlTag.style.height = 'initial';
+      htmlTag.style.overflow = 'initial';
     }
-  }, [isMobileMenuOpen]);
+  }
 
   return (
     <div
@@ -76,7 +79,10 @@ const Layout = ({ children }: { children: any }) => {
               <div className="flex items-center lg:hidden">
                 {/* <!-- Mobile menu button --> */}
                 <button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  onClick={() => {
+                    preventHtmlScroll();
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                  }}
                   type="button"
                   className="inline-flex items-center align-end justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   aria-controls="mobile-menu"
