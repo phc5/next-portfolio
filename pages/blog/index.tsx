@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import WarningNotification from '../../components/Notifications/WarningNotification';
 import { getMapOfFiles, getDirectories } from '../../lib/api';
 
 export default function BlogPage({ directories, mapOfFiles }) {
-  const [isNotificationDismissed, setIsNotificationDismissed] = useState(false);
-
-  useEffect(() => {
-    if (window !== undefined) {
-      setIsNotificationDismissed(
-        window?.localStorage?.getItem('blogWarningMessageDismissed') === 'true'
-      );
-    }
-  }, []);
-
   const allPosts = directories.map((directory) => {
     const posts = mapOfFiles[directory].map((post) => (
       <article key={post.title} className="py-6">
@@ -46,15 +35,6 @@ export default function BlogPage({ directories, mapOfFiles }) {
 
   return (
     <Layout>
-      <div className="fixed bottom-0 right-0 m-4">
-        <WarningNotification
-          title="Under Construction"
-          message="My blog section is currently being redesigned! Sorry for the inconvenience, I will try to get this updated ASAP!"
-          stateUpdater={setIsNotificationDismissed}
-          stateValue={isNotificationDismissed}
-        />
-      </div>
-
       <div>
         <Head>
           <title>Blog | Paul Chong's Blog</title>
