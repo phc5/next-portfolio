@@ -11,7 +11,7 @@ export default function About() {
       <div className="space-y-6 lg:col-start-1 lg:col-span-2">
         <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
-            <dt className="text-lg md:text-xl font-semibold text-heading">
+            <dt className="text-xl md:text-2xl font-semibold text-heading">
               About
             </dt>
             <dd className="mt-1 text-base md:text-lg text-gray-900">
@@ -32,7 +32,7 @@ export default function About() {
       </div>
       <div className="space-y-6 lg:col-start-3 lg:col-span-1">
         <dl className="sm:col-span-2">
-          <dt className="text-lg md:text-xl font-semibold text-heading">
+          <dt className="text-xl md:text-2xl font-semibold text-heading">
             Tech
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
@@ -40,7 +40,7 @@ export default function About() {
           </dd>
         </dl>
         <dl className="sm:col-span-2">
-          <dt className="text-lg md:text-xl font-semibold text-heading">
+          <dt className="text-xl md:text-2xl font-semibold text-heading">
             Things I Like
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
