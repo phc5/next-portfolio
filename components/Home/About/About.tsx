@@ -41,7 +41,7 @@ export default function About() {
         </dl>
         <dl className="sm:col-span-2">
           <dt className="text-xl md:text-2xl font-semibold text-heading">
-            Things I Like
+            Likes
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
             Golf, surfing,{' '}

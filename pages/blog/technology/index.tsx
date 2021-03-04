@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Layout from '../../../components/Layout';
 import { getPostsFromDirectory } from '../../../lib/api';
 
-export default ({ arrayOfPosts }) => {
+export default function BlogTechnologyPage({ arrayOfPosts }) {
   const posts = arrayOfPosts.map((post) => (
     <div key={post.title} className="mb-6 pt-6">
       <p className="italic">{post.date}</p>
@@ -37,7 +37,7 @@ export default ({ arrayOfPosts }) => {
       </div>
     </Layout>
   );
-};
+}
 
 export async function getStaticProps() {
   const arrayOfPosts = getPostsFromDirectory('technology');
