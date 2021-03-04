@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import ProfileV2 from '../components/Home/ProfileV2';
 import { getPostsFromDirectory } from '../lib/api';
 
-export default function Home({ arrayOfPosts }) {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ export default function Home({ arrayOfPosts }) {
       </Head>
       <Layout>
         <div className="max-w-7xl mx-auto mt-12 grid grid-cols-1 gap-12 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3 px-2 sm:px-4 lg:px-8">
-          <ProfileV2 arrayOfPosts={arrayOfPosts} />
+          <ProfileV2 posts={posts} />
         </div>
       </Layout>
     </>
@@ -24,11 +24,11 @@ export default function Home({ arrayOfPosts }) {
 }
 
 export async function getStaticProps() {
-  const arrayOfPosts = getPostsFromDirectory('technology');
+  const posts = getPostsFromDirectory('technology');
 
   return {
     props: {
-      arrayOfPosts,
+      posts,
     },
   };
 }

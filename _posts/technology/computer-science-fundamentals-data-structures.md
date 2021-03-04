@@ -18,21 +18,30 @@ Maps hold key-value pairs and remembers the original insertion order of the keys
 
 Both Maps and Objects let you set keys, retrieve values for those keys, delete keys, and detect wheteher something is stored at a key. Now you might be thinking what's the difference between Map and Object? Here they are:
 
-- Key Types
-  - Map: can be anything like primitive, functions, and objects.
-  - Objects: must String or Symbol
-- Key Order
-  - Map: keys are ordered by when it was inserted.
-  - Object: keys are not ordered
-- Size:
-  - Map: can get size by using size() property on Map.
-  - Object: number of items must be determined manually.
-- Iteration:
-  - Map: is an iterator so it can be directly iterated like in a for...of loop.
-  - Object: requires obtaining its keys (lik Object.keys) and iterating over them.
-- Performance:
-  - Map: performs better in scenarios involving frequent additions and removals of key-value pairs.
-  - Object: not optimized for frequent additions or removal of key-value paris.
+Key Types
+
+- Map: can be anything like primitive, functions, and objects.
+- Objects: must String or Symbol
+
+Key Order
+
+- Map: keys are ordered by when it was inserted.
+- Object: keys are not ordered
+
+Size:
+
+- Map: can get size by using size() property on Map.
+- Object: number of items must be determined manually.
+
+Iteration:
+
+- Map: is an iterator so it can be directly iterated like in a for...of loop.
+- Object: requires obtaining its keys (lik Object.keys) and iterating over them.
+
+Performance:
+
+- Map: performs better in scenarios involving frequent additions and removals of key-value pairs.
+- Object: not optimized for frequent additions or removal of key-value paris.
 
 ## Stacks
 
@@ -213,13 +222,18 @@ There are a couple problems with hash tables:
 
 A bloom filter is a space-efficient probabilistic data structure that is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not – in other words, a query returns either "possibly in set" or "definitely not in set." An empty Bloom filter is a bit array of m bits, all set to 0 like this [0,0,0,0,0,0,0,0,0,0]. You also need k different hash functions defined, each of which maps or hashes some set element to one of the m array positions, generating a uniform random distribution.
 
-- To add an element, feed it to each of the k hash functions to get k array positions. Set the bits at all these positions to 1.
-  - For example if you had 5 hashing functions, you'd get 5 indexes to switch to 0. If the index is already switched to 1 then do nothing.
-- To query for an element (test whether it is in the set), feed it to each of the k hash functions to get k array positions.
-  - If any of the bits at these positions is 0, the element is definitely not in the set; if it were, then all the bits would have been set to 1 when it was inserted.
-  - If all are 1, then either the element is in the set, or the bits have by chance been set to 1 during the insertion of other elements, resulting in a false positive. This is the tradeoff you're going to have to accept if you use a bloom filter.
-- You also can't remove anything you add to a bloom filter because removing it would flip the bit in the indices which other results depend on.
-- The number of indices has to be larger (take a lot of memory) and not small like 10 in the example above because you can't expand a bloom filter.
+To add an element, feed it to each of the k hash functions to get k array positions. Set the bits at all these positions to 1.
+
+- For example if you had 5 hashing functions, you'd get 5 indexes to switch to 0. If the index is already switched to 1 then do nothing.
+
+To query for an element (test whether it is in the set), feed it to each of the k hash functions to get k array positions.
+
+- If any of the bits at these positions is 0, the element is definitely not in the set; if it were, then all the bits would have been set to 1 when it was inserted.
+- If all are 1, then either the element is in the set, or the bits have by chance been set to 1 during the insertion of other elements, resulting in a false positive. This is the tradeoff you're going to have to accept if you use a bloom filter.
+
+You also can't remove anything you add to a bloom filter because removing it would flip the bit in the indices which other results depend on.
+
+The number of indices has to be larger (take a lot of memory) and not small like 10 in the example above because you can't expand a bloom filter.
 
 Here are some real-world applications: [Wikipedia Bloom Filters](https://en.wikipedia.org/wiki/Bloom_filter#Examples)
 
@@ -246,13 +260,14 @@ class BloomFilter {
 
 Trees are an essential part of storing data; one of their benefits is that they are optimized to be searchable. One operation you sometimes have to make with a tree is to flatten it down. There are a couple ways to do this:
 
-- Depth-First Search
-  - Preorder: process the node your on, then process left, and then process the right.
-    - Useful if you want to make a copy of the tree.
-  - Inorder: process the left, then the node, and then the right.
-    - Useful if you want to flatten your tree.
-  - Postorder: process the left, then the right, and then the node.
-    - Useful if you want to delete the tree.
+Depth-First Search
+
+- Preorder: process the node your on, then process left, and then process the right.
+  - Useful if you want to make a copy of the tree.
+- Inorder: process the left, then the node, and then the right.
+  - Useful if you want to flatten your tree.
+- Postorder: process the left, then the right, and then the node.
+  - Useful if you want to delete the tree.
 
 ```
 const preorderTraverse = (node, array) => {
@@ -280,7 +295,7 @@ const postorderTraverse = (node, array) => {
 };
 ```
 
-- Breadth-First Search
+Breadth-First Search
 
 Unlike DFS where we recursively process sub trees, BFS starts at the root and makes its way down the tree by layer. To implement this, we need to use a queue. Enqueue the root node, shift the root node, push the root value to your array, check if you have a left and/or right and push to array, respectively and then continue down the tree going left to right.
 
@@ -312,11 +327,14 @@ A tree is actually a type of graph, but not all graphs are trees. The difference
 
 There are two primary ways of representing a graph:
 
-- Adjacency List
-  - Every node stores a list of adjacent connected vertices. In the below example, node 0 is connected to 1, node 1 is connected to 2, node 2 is connected to 0 and 3, etc... if this was a bidirectional graph, then the an edge would be stored twice so 0 <-> 1 would be [[1], [0,2],...] from extending our example below.
-  - ex: [[1],[2],[0,3],[2],[6],[4],[5]]
-- Adjacency Matrix
-  - is an NxN boolean matrix where N is the number of nodes. The value at (x,y) is usually a boolean like 0 and 1 (0 indiciating there is no edge between the coordinates and 1 indicating there is an edge at the coordinates).
+Adjacency List
+
+- Every node stores a list of adjacent connected vertices. In the below example, node 0 is connected to 1, node 1 is connected to 2, node 2 is connected to 0 and 3, etc... if this was a bidirectional graph, then the an edge would be stored twice so 0 <-> 1 would be [[1], [0,2],...] from extending our example below.
+- ex: [[1],[2],[0,3],[2],[6],[4],[5]]
+
+Adjacency Matrix
+
+- is an NxN boolean matrix where N is the number of nodes. The value at (x,y) is usually a boolean like 0 and 1 (0 indiciating there is no edge between the coordinates and 1 indicating there is an edge at the coordinates).
 
 The same search algorithms can be used on these two graphs but the main difference is that in the adjacency list you will have all the neighbors of a node while in an adjacency matrix, you will have to iterate through most if not all nodes to get neighbors. You can optimze by finding neighbors for both origin and end.
 

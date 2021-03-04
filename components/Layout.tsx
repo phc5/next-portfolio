@@ -44,7 +44,7 @@ const Layout = ({ children }: { children: any }) => {
               <div className="flex px-2 lg:px-0">
                 <Link href="/">
                   <a className="flex-shrink-0 flex flex-col items-center relative">
-                    <h1 className="text-5xl font-bold tracking-tighter leading-tight">
+                    <h1 className="text-4xl font-bold tracking-tighter leading-tight m-auto">
                       Paul Chong
                     </h1>
                   </a>

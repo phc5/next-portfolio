@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-wave">
       <div className="max-w-7xl mx-auto p-2 sm:p-4 lg:p-8 w-full m-8 grid grid-cols-1 gap-12 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2">
         <div className="lg:col-start-1 lg:col-span-1 flex flex-col space-y-2">
-          <h2 className="text-2xl font-semibold ">Paul Chong</h2>
+          <span className="text-2xl font-semibold ">Paul Chong</span>
           <div>
             <p className="text-xs  text-gray-600">
               made with{' '}
@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="lg:col-start-2 lg:col-span-1 grid grid-cols-1 gap-4 md:grid-flow-col-dense md:grid-cols-2">
           <div>
-            <h4 className="text-base mb-5 text-gray-500">Navigation</h4>
+            <p className="text-base mb-5 text-gray-500">Navigation</p>
             <div className="flex flex-col text-sm space-y-2">
               <Link href="/experience">
                 <a>Experience</a>
@@ -34,8 +34,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-base mb-5 text-gray-500">Social</h4>
-
+            <p className="text-base mb-5 text-gray-500">Social</p>
             <div className="flex flex-col text-sm space-y-2">
               <a
                 href="https://www.linkedin.com/in/paulhchong/"

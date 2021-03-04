@@ -31,15 +31,15 @@ export default function About() {
         </dl>
       </div>
       <div className="space-y-6 lg:col-start-3 lg:col-span-1">
-        <div className="sm:col-span-2">
+        <dl className="sm:col-span-2">
           <dt className="text-lg md:text-xl font-semibold text-heading">
             Tech
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
             JavaScript, React, AWS, Next.js, GraphQL, CSS, TypeScript
           </dd>
-        </div>
-        <div className="sm:col-span-2">
+        </dl>
+        <dl className="sm:col-span-2">
           <dt className="text-lg md:text-xl font-semibold text-heading">
             Things I Like
           </dt>
@@ -61,7 +61,7 @@ export default function About() {
             </Tippy>
             , video games, watching cooking and baking shows, electric vehicles
           </dd>
-        </div>
+        </dl>
       </div>
     </>
   );

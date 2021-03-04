@@ -1,7 +1,3 @@
-import A from '../components/svg/A';
-import C from '../components/svg/C';
-import S from '../components/svg/S';
-
 const WORK_EXPERIENCE = [
   {
     company: 'Amazon Web Services',
@@ -21,9 +17,6 @@ const WORK_EXPERIENCE = [
       displayDate: 'Jul 2020',
       valueDate: '2020-07',
     },
-    svgComponent: A,
-    svgPrimaryColor: '#FF9900',
-    svgSecondaryColor: '#E08700',
     technologies: [
       'JavaScript',
       'React',
@@ -64,9 +57,6 @@ const WORK_EXPERIENCE = [
       displayDate: 'May 2017',
       valueDate: '2017-05',
     },
-    svgComponent: C,
-    svgPrimaryColor: '#4072C9',
-    svgSecondaryColor: '#315FAF',
     technologies: [
       'JavaScript',
       'React',
@@ -112,9 +102,6 @@ const WORK_EXPERIENCE = [
       displayDate: 'Mar 2015',
       valueDate: '2015-05',
     },
-    svgComponent: S,
-    svgPrimaryColor: '#E04429',
-    svgSecondaryColor: '#C4351C',
     technologies: ['C#', 'Git', 'Jira', 'Agile'],
   },
   {
@@ -133,9 +120,6 @@ const WORK_EXPERIENCE = [
       displayDate: 'Sep 2013',
       valueDate: '2013-09',
     },
-    svgComponent: C,
-    svgPrimaryColor: '#D0394F',
-    svgSecondaryColor: '#B62B40',
     technologies: [
       'JavaScript',
       'CSS',

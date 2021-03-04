@@ -8,6 +8,3 @@
     @apply text-gray-900;
   }
 }
-.blog-post:hover > h5 {
-  color: rgba(37, 99, 235);
-}
