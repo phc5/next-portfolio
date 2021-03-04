@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Tippy from '@tippyjs/react';
+import getYearsOfExperience from '../../../lib/getYearsOfExperience';
 
 export default function About() {
   const [isKoraVisible, setIsKoraVisible] = useState(false);
@@ -15,10 +16,10 @@ export default function About() {
               About
             </dt>
             <dd className="mt-1 text-base md:text-lg text-gray-900">
-              I am a software engineer with 4 years of experience in UI
-              engineering building clean and performant user interfaces and
-              applications. I have experience developing projects from
-              small-scale static websites to large-scale, enterprise-level
+              I am a software engineer with {getYearsOfExperience()} years of
+              experience in UI engineering building clean and performant user
+              interfaces and applications. I have experience developing projects
+              from small-scale static websites to large-scale, enterprise-level
               applications that have served millions of users and have achieved
               success in both team-oriented and independent environments.
               <br />
