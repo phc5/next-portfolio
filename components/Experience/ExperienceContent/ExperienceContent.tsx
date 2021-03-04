@@ -16,6 +16,8 @@ export default function ExperienceContent({
     technologies,
   } = WORK_EXPERIENCE[selectedExperienceIndex];
 
+  const WORK_EXPERIENCE_LENGTH = WORK_EXPERIENCE.length;
+
   return (
     <div className="xl:col-span-3 xl:pr-8">
       <div className="flex items-center justify-between space-x-4 xl:border-b xl:pb-6">
@@ -42,17 +44,25 @@ export default function ExperienceContent({
           </div>
         </div>
         <div className="mt-4 flex space-x-3 md:mt-0">
-          <nav aria-label="Pagination">
-            <span className="relative z-0 inline-flex shadow-sm rounded-md">
+          <nav
+            aria-label="Pagination Navigation"
+            className="flex flex-col justify-center items-center"
+            role="navigation"
+          >
+            <span className="relative z-0 inline-flex shadow-sm rounded-md mb-2">
               <button
+                aria-label={`Go to page ${
+                  selectedExperienceIndex - 1
+                } of ${WORK_EXPERIENCE_LENGTH}`}
                 onClick={() => {
                   if (selectedExperienceIndex > 0) {
                     setSelectedExperienceIndex(--selectedExperienceIndex);
                   }
                 }}
-                className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                disabled={selectedExperienceIndex === 0}
+                className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 disabled:text-gray-100 disabled:pointer-events-none disabled:select-none"
               >
-                <span className="sr-only">Next</span>
+                <span className="sr-only">Previous</span>
                 <svg
                   className="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -68,14 +78,20 @@ export default function ExperienceContent({
                 </svg>
               </button>
               <button
+                aria-label={`Go to page ${
+                  selectedExperienceIndex + 1
+                } of ${WORK_EXPERIENCE_LENGTH}`}
                 onClick={() => {
-                  if (selectedExperienceIndex < WORK_EXPERIENCE.length - 1) {
+                  if (selectedExperienceIndex < WORK_EXPERIENCE_LENGTH - 1) {
                     setSelectedExperienceIndex(++selectedExperienceIndex);
                   }
                 }}
-                className="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                disabled={
+                  selectedExperienceIndex === WORK_EXPERIENCE_LENGTH - 1
+                }
+                className="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600 disabled:text-gray-100 disabled:pointer-events-none disabled:select-none"
               >
-                <span className="sr-only">Previous</span>
+                <span className="sr-only">Next</span>
                 <svg
                   className="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +107,9 @@ export default function ExperienceContent({
                 </svg>
               </button>
             </span>
+            <p className="text-xs">
+              {selectedExperienceIndex + 1} of {WORK_EXPERIENCE_LENGTH}
+            </p>
           </nav>
         </div>
       </div>
@@ -126,7 +145,7 @@ export default function ExperienceContent({
                         backgroundColor: randomColor({
                           luminosity: 'light',
                           format: 'rgba',
-                          alpha: 0.5, // e.g. 'rgba(9, 1, 107, 0.5)',
+                          alpha: 0.5,
                         }),
                       }}
                     >

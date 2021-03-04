@@ -7,7 +7,7 @@ export default function Blog({ posts }) {
   return (
     <div className="space-y-6 lg:col-start-1 lg:col-span-2">
       <section className="py-4 sm:py-6">
-        <h2 className="text-xl md:text-2xl font-semibold text-heading">Blog</h2>
+        <h2 className="text-xl md:text-2xl font-semibold text-heading">blog</h2>
 
         <ul className="space-y-16 mt-1">
           {posts.map((post) => {
@@ -37,9 +37,9 @@ export default function Blog({ posts }) {
                       stroke="#111827"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="3"
                         d="M13 5l7 7-7 7M5 5l7 7-7 7"
                       />
                     </svg>

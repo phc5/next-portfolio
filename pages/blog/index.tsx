@@ -32,9 +32,9 @@ export default function BlogPage({ directories, mapOfFiles }) {
             stroke="#111827"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
               d="M13 5l7 7-7 7M5 5l7 7-7 7"
             />
           </svg>

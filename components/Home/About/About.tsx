@@ -13,7 +13,7 @@ export default function About() {
         <dl className="grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <dt className="text-xl md:text-2xl font-semibold text-heading">
-              About
+              about
             </dt>
             <dd className="mt-1 text-base md:text-lg text-gray-900">
               I am a software engineer with {getYearsOfExperience()} years of
@@ -34,7 +34,7 @@ export default function About() {
       <div className="space-y-6 lg:col-start-3 lg:col-span-1">
         <dl className="sm:col-span-2">
           <dt className="text-xl md:text-2xl font-semibold text-heading">
-            Tech
+            tech
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
             JavaScript, React, AWS, Next.js, GraphQL, CSS, TypeScript
@@ -42,7 +42,7 @@ export default function About() {
         </dl>
         <dl className="sm:col-span-2">
           <dt className="text-xl md:text-2xl font-semibold text-heading">
-            Likes
+            likes
           </dt>
           <dd className="mt-1 text-base md:text-lg text-gray-900">
             Golf, surfing,{' '}

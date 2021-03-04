@@ -41,10 +41,10 @@ const Layout = ({ children }: { children: any }) => {
         >
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div className="flex justify-between h-16">
-              <div className="flex px-2 lg:px-0">
+              <div className="flex">
                 <Link href="/">
                   <a className="flex-shrink-0 flex flex-col items-center relative">
-                    <h1 className="text-4xl font-bold tracking-tighter leading-tight m-auto">
+                    <h1 className="py-1 px-2 text-3xl font-bold tracking-tighter leading-tight m-auto transition-transform duration-500 transform hover:-skew-x-12 hover:bg-red-500 hover:text-white">
                       Paul Chong
                     </h1>
                   </a>
@@ -53,11 +53,11 @@ const Layout = ({ children }: { children: any }) => {
                 <nav className="hidden lg:ml-12 lg:flex lg:space-x-8">
                   <Link href={ROUTES.EXPERIENCE}>
                     <a
-                      className={
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                         currentPath === ROUTES.EXPERIENCE
-                          ? 'border-heading inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-                          : 'border-transparent text-gray-900 hover:text-blue-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-                      }
+                          ? 'border-heading '
+                          : 'border-transparent text-gray-900 hover:text-blue-500'
+                      }`}
                     >
                       Experience
                     </a>
@@ -65,11 +65,11 @@ const Layout = ({ children }: { children: any }) => {
 
                   <Link href={ROUTES.BLOG}>
                     <a
-                      className={
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                         currentPath === ROUTES.BLOG
-                          ? 'border-heading inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+                          ? 'border-heading '
                           : 'border-transparent text-gray-900 hover:text-blue-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-                      }
+                      }`}
                     >
                       Blog
                     </a>
@@ -144,11 +144,11 @@ const Layout = ({ children }: { children: any }) => {
             <div className="pt-2 pb-3 px-2 sm:px-4 lg:px-8 space-y-1">
               <Link href={ROUTES.EXPERIENCE}>
                 <a
-                  className={
+                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
                     currentPath === ROUTES.EXPERIENCE
-                      ? 'bg-indigo-50 border-heading text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:ttext-blue-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                  }
+                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
+                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
+                  }`}
                 >
                   Experience
                 </a>
@@ -156,11 +156,11 @@ const Layout = ({ children }: { children: any }) => {
 
               <Link href={ROUTES.BLOG}>
                 <a
-                  className={
+                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
                     currentPath === ROUTES.BLOG
-                      ? 'bg-indigo-50 border-heading text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                  }
+                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
+                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
+                  }`}
                 >
                   Blog
                 </a>

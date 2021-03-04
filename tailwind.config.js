@@ -32,6 +32,10 @@ module.exports = {
     extend: {
       borderStyle: ['hover', 'focus'],
       borderWidth: ['hover', 'focus'],
+      opacity: ['disabled'],
+      pointerEvents: ['disabled'],
+      textColor: ['disabled'],
+      userSelect: ['disabled'],
     },
   },
   plugins: [require('@tailwindcss/typography')],
