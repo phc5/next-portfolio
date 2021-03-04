@@ -42,13 +42,15 @@ export default function BlogPage({ directories, mapOfFiles }) {
       </article>
     ));
     return (
-      <div key={directory} className="my-10 space-y-10">
+      <div key={directory} className="mt-16">
         <Link href={`/blog/${directory.toLowerCase()}`}>
-          <a className="text-3xl md:text-4xl font-semibold text-heading hover:underline">
+          <a className="text-xl md:text-2xl font-semibold text-heading hover:underline">
             {directory.charAt(0).toUpperCase() + directory.slice(1)}
           </a>
         </Link>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">{posts}</div>
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 mt-5">
+          {posts}
+        </div>
       </div>
     );
   });
@@ -61,9 +63,7 @@ export default function BlogPage({ directories, mapOfFiles }) {
         </Head>
 
         <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
-          <div className="mb-14">
-            <h2 className="text-4xl font-bold sm:text-7xl">Blog</h2>
-          </div>
+          <h2 className="text-4xl font-bold sm:text-7xl mb-14">Blog</h2>
 
           {allPosts}
         </div>

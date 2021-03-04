@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import ProfileV2 from '../components/Home/ProfileV2';
-import { getPostsFromDirectory } from '../lib/api';
+import { getAllPosts } from '../lib/api';
 
 export default function Home({ posts }) {
   return (
@@ -24,7 +24,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = getPostsFromDirectory('technology');
+  const posts = getAllPosts();
 
   return {
     props: {

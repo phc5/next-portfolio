@@ -5,7 +5,7 @@ import Layout from '../../../components/Layout';
 import { getPostsFromDirectory } from '../../../lib/api';
 import styles from '../../../styles/blog-page.module.scss';
 
-export default function BlogTechnologyPage({ arrayOfPosts }) {
+export default function BlogSnippetsPage({ arrayOfPosts }) {
   const posts = arrayOfPosts.map((post) => (
     <article
       key={post.title}
@@ -43,14 +43,14 @@ export default function BlogTechnologyPage({ arrayOfPosts }) {
     <Layout>
       <div className="mb-32">
         <Head>
-          <title>Technology Blog | Paul Chong's Blog</title>
+          <title>Snippets Blog | Paul Chong's Blog</title>
         </Head>
 
         <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 sm:text-7xl mb-14">
-            Technology
+            Snippets
           </h1>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2"> {posts}</div>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">{posts}</div>
         </div>
       </div>
     </Layout>
@@ -58,7 +58,7 @@ export default function BlogTechnologyPage({ arrayOfPosts }) {
 }
 
 export async function getStaticProps() {
-  const arrayOfPosts = getPostsFromDirectory('technology');
+  const arrayOfPosts = getPostsFromDirectory('snippets');
 
   return {
     props: {

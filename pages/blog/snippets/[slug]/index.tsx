@@ -8,7 +8,7 @@ import PostTitle from '../../../../components/Post/post-title';
 import { getPost, getPostSlugs } from '../../../../lib/api';
 import markdownToHtml from '../../../../lib/markdownToHtml';
 
-export default function TechnologyPostPage({ post }) {
+export default function SnippetsPostPage({ post }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -39,7 +39,7 @@ export default function TechnologyPostPage({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPost(params.slug, '_posts/technology', [
+  const post = getPost(params.slug, '_posts/snippets', [
     'title',
     'date',
     'slug',
@@ -59,7 +59,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getPostSlugs('technology');
+  const paths = getPostSlugs('snippets');
   return {
     paths: paths.map((slug) => {
       return {

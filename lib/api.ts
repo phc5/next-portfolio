@@ -20,6 +20,17 @@ export const getMapOfFiles = () => {
   return mapOfFiles;
 };
 
+export const getAllPosts = () => {
+  const directories = getDirectories();
+
+  return directories
+    .reduce((acc, curr) => {
+      const postsWithData = getPostsFromDirectory(curr);
+      return [...acc, ...postsWithData];
+    }, [])
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+};
+
 export const getPostsFromDirectory = (directory) => {
   const currentDirectory = join(process.cwd(), `_posts/${directory}`);
   const postsWithData = [];
@@ -34,7 +45,7 @@ export const getPostsFromDirectory = (directory) => {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
-    if (!data.hidden) {
+    if (data.hidden !== 'true') {
       postsWithData.push({
         path: `/blog/${directory.toLowerCase()}/${parse(file).name}`,
         title: data.title,
