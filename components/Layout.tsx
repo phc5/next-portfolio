@@ -4,24 +4,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ROUTES from '../constants/routes';
 import Footer from './Footer';
-// import useWindowSize from '../hooks/useWindowSize';
 
 const Layout = ({ children }: { children: any }) => {
   const router = useRouter();
-  // const windowSize = useWindowSize();
   const currentPath = router?.pathname;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  function preventHtmlScroll() {
-    const htmlTag = document?.getElementsByTagName('html')[0];
-    if (htmlTag && isMobileMenuOpen) {
-      htmlTag.style.height = '100%';
-      htmlTag.style.overflow = 'hidden';
-    } else {
-      htmlTag.style.height = 'initial';
-      htmlTag.style.overflow = 'initial';
-    }
-  }
 
   return (
     <div
@@ -82,7 +69,6 @@ const Layout = ({ children }: { children: any }) => {
                 {/* <!-- Mobile menu button --> */}
                 <button
                   onClick={() => {
-                    preventHtmlScroll();
                     setIsMobileMenuOpen(!isMobileMenuOpen);
                   }}
                   type="button"
@@ -133,46 +119,6 @@ const Layout = ({ children }: { children: any }) => {
             </div>
           </div>
 
-          <Transition
-            show={isMobileMenuOpen}
-            enter="transition-opacity duration-75"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-150"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            className="lg:hidden fixed inset-0 z-50 bg-white top-16"
-          >
-            <div className="pt-2 pb-3 px-2 sm:px-4 lg:px-8 space-y-1">
-              <Link href={ROUTES.EXPERIENCE}>
-                <a
-                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                    currentPath === ROUTES.EXPERIENCE
-                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
-                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
-                  }`}
-                >
-                  Experience
-                </a>
-              </Link>
-
-              <Link href={ROUTES.BLOG}>
-                <a
-                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                    currentPath === ROUTES.BLOG
-                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
-                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
-                  }`}
-                >
-                  Blog
-                </a>
-              </Link>
-            </div>
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="mt-3 space-y-1">{/* darkmode */}</div>
-            </div>
-          </Transition>
-
           {currentPath === ROUTES.HOME && (
             <>
               <span
@@ -208,6 +154,45 @@ const Layout = ({ children }: { children: any }) => {
             </>
           )}
         </div>
+
+        <Transition
+          show={isMobileMenuOpen}
+          enter="transition-opacity duration-75"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+          className="lg:hidden"
+        >
+          <div id="mobile-menu">
+            <div className="px-2 pt-2 pb-3">
+              <Link href={ROUTES.EXPERIENCE}>
+                <a
+                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+                    currentPath === ROUTES.EXPERIENCE
+                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
+                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
+                  }`}
+                >
+                  Experience
+                </a>
+              </Link>
+
+              <Link href={ROUTES.BLOG}>
+                <a
+                  className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+                    currentPath === ROUTES.BLOG
+                      ? 'bg-indigo-50 border-indigo-700 text-indigo-700'
+                      : 'border-transparent text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-500'
+                  }`}
+                >
+                  Blog
+                </a>
+              </Link>
+            </div>
+          </div>
+        </Transition>
       </header>
       <main className="flex-1 relative focus:outline-none mb-32" tabIndex={0}>
         {children}
