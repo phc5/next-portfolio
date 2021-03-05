@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ROUTES from '../constants/routes';
 import Footer from './Footer';
-import useWindowSize from '../hooks/useWindowSize';
+// import useWindowSize from '../hooks/useWindowSize';
 
 const Layout = ({ children }: { children: any }) => {
   const router = useRouter();
-  const windowSize = useWindowSize();
+  // const windowSize = useWindowSize();
   const currentPath = router?.pathname;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,15 +22,6 @@ const Layout = ({ children }: { children: any }) => {
       htmlTag.style.overflow = 'initial';
     }
   }
-
-  useEffect(() => {
-    if (windowSize.width >= 1024) {
-      const htmlTag = document?.getElementsByTagName('html')[0];
-      htmlTag.style.height = 'initial';
-      htmlTag.style.overflow = 'initial';
-      setIsMobileMenuOpen(false);
-    }
-  }, [windowSize]);
 
   return (
     <div
