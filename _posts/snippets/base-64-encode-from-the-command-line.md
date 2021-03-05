@@ -1,11 +1,11 @@
 ---
 title: 'Encoding to Base64 from the Command Line'
 date: '2020-08-13'
-snippet: 'A short snippet to Base64 encode from the command line.'
+snippet: 'At work I needed to convert an image into base64 so that I could include it in a markdown file for code review. Find out how to do do so yourself!'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
-tag: 'Technology'
+tag: 'Snippets'
 ---
 
 ## What is OpenSSL?

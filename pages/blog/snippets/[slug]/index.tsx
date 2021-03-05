@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import Head from 'next/head';
 import Layout from '../../../../components/Layout';
-import PostBody from '../../../../components/Post/post-body';
-import PostHeader from '../../../../components/Post/post-header';
+import Post from '../../../../components/Post/Post';
 import PostTitle from '../../../../components/Post/post-title';
 import { getPost, getPostSlugs } from '../../../../lib/api';
 import markdownToHtml from '../../../../lib/markdownToHtml';
@@ -18,21 +16,7 @@ export default function SnippetsPostPage({ post }) {
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
-        <>
-          <article>
-            <Head>
-              <title>{post.title} | Paul Chong's Blog</title>
-            </Head>
-            <div className="mx-auto mt-12 grid grid-cols-1 max-w-4xl px-2 sm:px-4 lg:px-8">
-              <PostHeader
-                title={post.title}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </div>
-          </article>
-        </>
+        <Post post={post} />
       )}
     </Layout>
   );

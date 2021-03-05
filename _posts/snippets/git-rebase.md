@@ -1,11 +1,11 @@
 ---
 title: 'Git Rebase and Squash'
 date: '2020-08-07'
-snippet: 'At my previous workplace, I used a git GUI to handle all my git operations. Today, I found out and used some git commands that I had not personally used before.'
+snippet: 'At my previous workplace, I used a git GUI to handle all my git operations so I was not comfortable using the command line. Now, I am soley using the command line and talk about some handy commands that you can use.'
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
-tag: 'Technology'
+tag: 'Snippets'
 ---
 
 ## Git Rebase and Squash
