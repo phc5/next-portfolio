@@ -22,9 +22,9 @@ export default function About() {
             </dt>
             <dd className="mt-1 text-base md:text-lg text-gray-900">
               I am a software engineer with {getYearsOfExperience()} years of
-              experience in UI engineering building clean and performant user
-              interfaces and applications. I have experience developing projects
-              from small-scale static websites to large-scale, enterprise-level
+              experience in building clean, intuitive, and performant web
+              applications. I have experience developing projects from
+              small-scale, static websites to large-scale, enterprise-level
               applications that have served millions of users and have achieved
               success in both team-oriented and independent environments.
               <br />
