@@ -19,21 +19,21 @@ const Layout = ({ children }: { children: any }) => {
       }}
     >
       <header
-        className={`z-50 bg-wave ${
+        className={`z-50 relative bg-wave ${
           currentPath === ROUTES.HOME ? '' : 'shadow'
         }`}
       >
         <div
-          className={`relative pt-1 ${
+          className={`relative pt-1 z-50 flex flex-col lg:block ${
             currentPath === ROUTES.HOME ? 'h-48 lg:h-80' : ''
           }`}
         >
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="max-w-7xl px-2 sm:px-4 lg:px-8 lg:mx-auto">
             <div className="flex justify-between h-16">
               <div className="flex">
                 <Link href="/">
                   <a className="flex-shrink-0 flex flex-col items-center relative">
-                    <h1 className="py-1 px-2 text-3xl font-bold tracking-tighter leading-tight m-auto transition-transform duration-500 transform hover:-skew-x-12 hover:bg-red-500 hover:text-white">
+                    <h1 className="py-1 px-2 text-3xl font-bold tracking-tighter leading-tight m-auto transition-transform duration-500 transform hover:-skew-x-6 hover:bg-red-500 hover:text-white">
                       Paul Chong
                     </h1>
                   </a>
@@ -120,7 +120,7 @@ const Layout = ({ children }: { children: any }) => {
           </div>
 
           {currentPath === ROUTES.HOME && (
-            <>
+            <div>
               <span
                 className={`hover:cursor-pointer pointer-events-none absolute text-4xl top-2/3 md:top-2/4 right-1/4 z-10`}
               >
@@ -151,21 +151,18 @@ const Layout = ({ children }: { children: any }) => {
                   fill="#ffffff"
                 ></path>
               </svg>
-            </>
+            </div>
           )}
-        </div>
-
-        <Transition
-          show={isMobileMenuOpen}
-          enter="transition-opacity duration-75"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-150"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-          className="lg:hidden"
-        >
-          <div id="mobile-menu">
+          <Transition
+            show={isMobileMenuOpen}
+            enter="transition-opacity duration-75"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-75"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            className="lg:hidden z-50 bg-wave relative h-full"
+          >
             <div className="px-2 pt-2 pb-3">
               <Link href={ROUTES.EXPERIENCE}>
                 <a
@@ -191,8 +188,8 @@ const Layout = ({ children }: { children: any }) => {
                 </a>
               </Link>
             </div>
-          </div>
-        </Transition>
+          </Transition>
+        </div>
       </header>
       <main className="flex-1 relative focus:outline-none mb-32" tabIndex={0}>
         {children}
