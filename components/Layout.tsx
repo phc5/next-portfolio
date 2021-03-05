@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: any }) => {
 
   function preventHtmlScroll() {
     const htmlTag = document?.getElementsByTagName('html')[0];
-    if (htmlTag && !isMobileMenuOpen) {
+    if (htmlTag && isMobileMenuOpen) {
       htmlTag.style.height = '100%';
       htmlTag.style.overflow = 'hidden';
     } else {
