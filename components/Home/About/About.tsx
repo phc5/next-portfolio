@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import * as Panelbear from '@panelbear/panelbear-js';
 import Tippy from '@tippyjs/react';
 import getYearsOfExperience from '../../../lib/getYearsOfExperience';
+import METRICS from '../../../constants/metrics';
 
 export default function About() {
   const [isKoraVisible, setIsKoraVisible] = useState(false);
-  const show = () => setIsKoraVisible(true);
+  const show = () => {
+    Panelbear.track(METRICS.HOME.OPEN_KORA);
+    setIsKoraVisible(true);
+  };
   const hide = () => setIsKoraVisible(false);
 
   return (
