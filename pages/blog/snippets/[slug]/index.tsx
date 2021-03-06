@@ -11,6 +11,7 @@ export default function SnippetsPostPage({ post }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Layout>
       {router.isFallback ? (
