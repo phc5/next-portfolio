@@ -33,7 +33,7 @@ const Layout = ({ children }: { children: any }) => {
               <div className="flex">
                 <Link href="/">
                   <a className="flex-shrink-0 flex flex-col items-center relative">
-                    <h1 className="py-1 px-2 text-3xl font-bold tracking-tighter leading-tight m-auto transition-transform duration-500 transform hover:-skew-x-6 hover:bg-red-500 hover:text-white">
+                    <h1 className="py-1 px-2 text-3xl tracking-tight m-auto transition-transform duration-500 transform hover:-skew-x-6 hover:bg-red-500 hover:text-white">
                       Paul Chong
                     </h1>
                   </a>
@@ -44,7 +44,7 @@ const Layout = ({ children }: { children: any }) => {
                     <a
                       className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                         currentPath === ROUTES.EXPERIENCE
-                          ? 'border-heading '
+                          ? 'border-blue-500 '
                           : 'border-transparent text-gray-900 hover:text-blue-500'
                       }`}
                     >
@@ -56,7 +56,7 @@ const Layout = ({ children }: { children: any }) => {
                     <a
                       className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                         currentPath === ROUTES.BLOG
-                          ? 'border-heading '
+                          ? 'border-blue-500 '
                           : 'border-transparent text-gray-900 hover:text-blue-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
                       }`}
                     >
