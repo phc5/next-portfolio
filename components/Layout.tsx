@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: any }) => {
 
   return (
     <div
-      className="grid min-h-full"
+      className="grid min-h-screen"
       style={{
         gridTemplateColumns: '100%',
         gridTemplateRows: 'auto 1fr auto',

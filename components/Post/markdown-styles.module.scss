@@ -34,10 +34,15 @@
 }
 
 .markdown ul {
-  margin: 0;
-
   li {
     list-style: disc;
+    margin-left: 2rem;
+  }
+}
+
+.markdown ol {
+  li {
+    list-style: decimal;
     margin-left: 2rem;
   }
 }

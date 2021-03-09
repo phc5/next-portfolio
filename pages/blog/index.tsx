@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import startCase from 'lodash.startcase';
 import Layout from '../../components/Layout';
 import { getMapOfFiles, getDirectories } from '../../lib/api';
 import styles from '../../styles/blog-page.module.scss';
@@ -41,18 +42,18 @@ export default function BlogPage({ directories, mapOfFiles }) {
         </p>
       </article>
     ));
-    return (
+    return posts.length > 0 ? (
       <div key={directory} className="mt-16">
         <Link href={`/blog/${directory.toLowerCase()}`}>
           <a className="text-xl md:text-2xl font-semibold text-heading hover:underline">
-            {directory.charAt(0).toUpperCase() + directory.slice(1)}
+            {startCase(directory.replace('-', ' '))}
           </a>
         </Link>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 mt-5">
           {posts}
         </div>
       </div>
-    );
+    ) : null;
   });
 
   return (

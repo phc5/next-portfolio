@@ -45,7 +45,10 @@ export const getPostsFromDirectory = (directory) => {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
-    if (data.hidden !== 'true') {
+    if (
+      (process.env.NODE_ENV === 'production' && data.hidden !== 'true') ||
+      process.env.NODE_ENV === 'development'
+    ) {
       postsWithData.push({
         path: `/blog/${directory.toLowerCase()}/${parse(file).name}`,
         title: data.title,
@@ -97,13 +100,33 @@ export const getPost = (
   };
 };
 
-export const getPostSlugs = (directory) => {
-  const currentDirectory = join(process.cwd(), `_posts/${directory}`);
+export const getPostSlugs = (directories) => {
+  const slugs = directories
+    .map((directory) => {
+      const currentDirectory = join(process.cwd(), `_posts/${directory}`);
 
-  const files = fs
+      const files = fs
+        .readdirSync(currentDirectory, { withFileTypes: true })
+        .filter((dirent) => dirent.isFile())
+        .map((dirent) => ({
+          slug: parse(dirent.name).name,
+          category: directory,
+        }));
+
+      return files;
+    })
+    .flat();
+
+  return slugs;
+};
+
+export const getBlogCategories = () => {
+  const currentDirectory = join(process.cwd(), `_posts/`);
+
+  const directories = fs
     .readdirSync(currentDirectory, { withFileTypes: true })
-    .filter((dirent) => dirent.isFile())
+    .filter((dirent) => dirent.isDirectory())
     .map((dirent) => parse(dirent.name).name);
 
-  return files;
+  return directories;
 };

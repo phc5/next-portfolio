@@ -6,7 +6,7 @@ export default function PostHeader({ title, date, author, slug }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:flex md:items-center md:justify-between">
+      <div className="hidden md:flex md:items-center md:justify-between mb-8">
         <Avatar name={author.name} picture={author.picture} date={date} />
         <HitCounter slug={slug} />
       </div>

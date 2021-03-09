@@ -3,14 +3,15 @@ import ErrorPage from 'next/error';
 import Layout from '../../../../components/Layout';
 import Post from '../../../../components/Post/Post';
 import PostTitle from '../../../../components/Post/post-title';
-import { getPost, getPostSlugs } from '../../../../lib/api';
+import { getPost, getPostSlugs, getBlogCategories } from '../../../../lib/api';
 import markdownToHtml from '../../../../lib/markdownToHtml';
 
-export default function TechnologyPostPage({ post }) {
+export default function SnippetsPostPage({ post }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
     <Layout>
       {router.isFallback ? (
@@ -22,8 +23,8 @@ export default function TechnologyPostPage({ post }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const post = getPost(params.slug, '_posts/technology', [
+export async function getStaticProps({ params: { slug, category } }) {
+  const post = getPost(slug, `_posts/${category}`, [
     'title',
     'date',
     'slug',
@@ -43,12 +44,14 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getPostSlugs('technology');
+  const directories = getBlogCategories();
+  const paths = getPostSlugs(directories);
   return {
-    paths: paths.map((slug) => {
+    paths: paths.map(({ slug, category }) => {
       return {
         params: {
-          slug: slug,
+          slug,
+          category,
         },
       };
     }),

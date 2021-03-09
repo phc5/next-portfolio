@@ -13,7 +13,6 @@ export default function HitCounter({ slug }) {
     fetch(`/api/register-hit?slug=${slug}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         if (typeof json.hits === 'number') {
           setHits(json.hits);
         }
