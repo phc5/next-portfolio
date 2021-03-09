@@ -10,6 +10,8 @@ tag: 'Technology'
 
 This is my first blog post on my personal website! I am starting this blog so that I can build my online presence as well as keep learnings on record and reference them in the future.
 
+## Table of Contents
+
 ## Building This Website
 
 I have been using React for about three years now and built my previous website using it. Here's a screenshot of it:

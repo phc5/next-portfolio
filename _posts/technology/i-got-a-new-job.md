@@ -11,6 +11,8 @@ hidden: 'true'
 
 I recently (6/22/2020) accepted a front end engineering position at AWS Activate and wanted to reflect on my time at Kelley Blue Book, talk a little about the interview process for AWS, and jot down what I look forward to in my new position.
 
+## Table of Contents
+
 ## My Time at Kelley Blue Book
 
 I graduated from Calvin College in 2016 and took some time in between graudation and KBB to travel and learn web development online. My first day at KBB was on May 15th, 2020 and my first impression of the team was how friendly and welcoming everyone was; this is still the KBB.com culture today despite working in a virtual world. I had come in without knowing how engineering fits within the business and how software engineers operate on a day-to-day basis and was eased into becoming a solid individual contributer.

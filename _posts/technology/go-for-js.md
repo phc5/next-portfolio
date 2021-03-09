@@ -8,6 +8,8 @@ author:
 tag: 'Technology'
 ---
 
+## Table of Contents
+
 ## Go for JS
 
 Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. It is a statically typed, compiled programming language designed at Google. It is syntactically similar to C, but with built-in memory safety, garbage collection, structural typing and concurrency.

@@ -10,6 +10,7 @@ tag: 'Technology'
 
 TLDR: Remove unnecessary VS Code extensions. Chrome extensions too.
 
+## Table of Contents
 ## Problem
 
 I recently ran into an issue where my 2018 Macbook Pro (2.2 GHz 6-Core Intel Core i7, 16 GB 2400 MHz DDR4) was running very slow while I was writing code and viewing changes locally in Chrome. I saw the issue occur when I opened up Chrome DevTools and wanted to edit styles or inspect an element; my browser would freeze up for a few seconds. It was a pain in the ass.

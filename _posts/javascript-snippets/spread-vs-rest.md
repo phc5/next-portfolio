@@ -8,6 +8,8 @@ author:
 tag: 'Javascript Snippets'
 ---
 
+## Table of Contents
+
 ## Problem
 
 The spread and rest syntax are denoted by three periods like this `...`. Although they look the same, they perform different operations.

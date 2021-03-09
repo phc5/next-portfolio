@@ -11,6 +11,8 @@ hidden: 'true'
 
 Rust is a language that empowers developers to build reliable and efficient software. It is performant, reliable, and developer-friendly. You can create command line tools, web apps, servers, and embedded systems.
 
+## Table of Contents
+
 ## Variables
 
 By default variables are immutable, but you have the option to make them mutable. If you have an immutable variable `let x = 5;` and try to change it, Rust will throw a compile-time error because this situation can lead to bugs. In Rust, the compiler guarantees that when you state that a value won't change, it will not change.

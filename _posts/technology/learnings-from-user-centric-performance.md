@@ -12,6 +12,8 @@ The performance of your web application is key to the success of your conversion
 
 You could have a web page that loads quickly and defers the loading of components on the page, but that initial load might not have anything immediately useful for the user. Would this be categorized as great performance?
 
+## Table of Contents
+
 ## Questions to Think About
 
 To standardize and define what makes a web page performant, the Chrome team and [W3C Web Performance Working Group](https://www.w3.org/webperf/) came up with ways to identify performance by thinking about not only speed but also usefulness and relevance to the user. These are known as metrics: <i>objective criteria that can be quantitatively measured</i>.

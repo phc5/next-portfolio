@@ -11,6 +11,8 @@ hidden: 'true'
 
 React is a JavaScript library for building user interfaces.
 
+## Table of Contents
+
 ## Babel
 
 Babel takes the code you wrote in whatever version of JavaScript and transpiles it down to JavaScript that browsers can parse, compile, and execute. Another thing Babel can do is transiple JSX into JavaScript code. In a React app, when you have JSX, Babel takes that and converts it into React.CreateElement() by the use of a preset: @babel/preset-react.

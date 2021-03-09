@@ -9,6 +9,8 @@ tag: 'Technology'
 hidden: 'true'
 ---
 
+## Table of Contents
+
 ## SQL Databases
 
 A relational database like SQL is a collection of data items organized in tables.

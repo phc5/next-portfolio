@@ -10,6 +10,8 @@ tag: 'Technology'
 
 I will be talking about the performance improvements made to the California Christ Community Church website by using Next.js and its server-side rendering and static-site generation capabilities.
 
+## Table of Contents
+
 ## Redesigning the Website
 
 I have been serving as a webmaster for [c4ministry.com](https://www.c4ministry.com/) for about a year now and had plans to redesign the website using React. The previous site was made using HTML, Bootstrap, vanilla JS, and jQuery and it got the job done. We had numerous features on the website such as a contact form, integration with Mixcloud to listen to sermons, integration with Google Calendar, and integrations with various blogging sites.

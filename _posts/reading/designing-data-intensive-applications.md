@@ -9,6 +9,8 @@ tag: 'Technology'
 hidden: 'true'
 ---
 
+## Table of Contents
+
 ## Part 1: Foundations of Data Systems
 
 There are three sort of pillars to building out data intensive applications: reliability, scalability, and maintainability. Reliability means that our system is able to continue to work correctly even when faced with adversity (hardware and/or software faults). Scalability refers to the ability to shrink and grow depending on the application's usage. And maintainability highlights the operability, simplicity, and evolvability of our systems so that future developers will be able to work on the system productively.

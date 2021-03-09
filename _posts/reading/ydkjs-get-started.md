@@ -9,6 +9,8 @@ tag: 'Technology'
 hidden: 'true'
 ---
 
+## Table of Contents
+
 ## JavaScript Paradigms
 
 JavaScript is a multi-paradigm language. Here are some ways you can write JavaScript:
@@ -112,8 +114,6 @@ soccer.hasOwnProperty("startMatch"); // true
 
 Although the object `soccer` doesn't have the property `hasOwnProperty()`, we are able to call on `soccer` because the the delegation (prototype chain) invokes `Object.prototype.toString()`.
 
-
 #### Object linkage
 
-To create a linkage from objects that you created yourself, you can use the `Object.create(...)` property. 
-
+To create a linkage from objects that you created yourself, you can use the `Object.create(...)` property.

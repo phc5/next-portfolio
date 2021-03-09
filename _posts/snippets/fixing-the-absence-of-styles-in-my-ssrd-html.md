@@ -8,6 +8,8 @@ author:
 tag: 'Snippets'
 ---
 
+## Table of Contents
+
 ## Problem
 
 I recently removed `styled-components` and switched to `tailwindcss` on my personal website. During this process, I noticed my server-side rendered HTML did not include styling, which is a big reason why I used Next.js (for its SSR capabilities):

@@ -8,6 +8,8 @@ author:
 tag: 'Technology'
 ---
 
+## Table of Contents
+
 ## Sets
 
 Sets are a data structure that can store any number of unique values in any order you so wish. Set’s are different from arrays in the sense that they only allow non-repeated, unique values within them. A set allows allows at least four things: add, remove, contains, and toList. Set have no notion of order adn are also useful for deduplication since you can only add something to a set once.
