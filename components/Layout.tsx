@@ -18,16 +18,8 @@ const Layout = ({ children }: { children: any }) => {
         gridTemplateRows: 'auto 1fr auto',
       }}
     >
-      <header
-        className={`z-50 relative bg-wave ${
-          currentPath === ROUTES.HOME ? '' : 'shadow'
-        }`}
-      >
-        <div
-          className={`relative pt-1 z-50 flex flex-col lg:block ${
-            currentPath === ROUTES.HOME ? 'h-48 lg:h-80' : ''
-          }`}
-        >
+      <header className="z-50 relative bg-wave">
+        <div className="relative pt-1 z-50 flex flex-col lg:block h-48 lg:h-80">
           <div className="max-w-7xl px-2 sm:px-4 lg:px-8 lg:mx-auto">
             <div className="flex justify-between h-16">
               <div className="flex">
@@ -118,41 +110,39 @@ const Layout = ({ children }: { children: any }) => {
               </div>
             </div>
           </div>
+          <div>
+            <span
+              className={`hover:cursor-pointer pointer-events-none absolute text-4xl top-2/3 md:top-2/4 right-1/4 z-10`}
+            >
+              &#127940;
+            </span>
 
-          {currentPath === ROUTES.HOME && (
-            <div>
-              <span
-                className={`hover:cursor-pointer pointer-events-none absolute text-4xl top-2/3 md:top-2/4 right-1/4 z-10`}
-              >
-                &#127940;
-              </span>
-
-              <svg
-                viewBox="0 100 1440 200"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute bottom-0"
-              >
-                <defs>
-                  <linearGradient id="gradient">
-                    <stop offset="5%" stopColor="#c9eaf5"></stop>
-                    <stop offset="95%" stopColor="#9ddaed"></stop>
-                  </linearGradient>
-                </defs>
-                <path
-                  stroke="none"
-                  strokeWidth="0"
-                  fill="url(#gradient)"
-                  d="M 0,400 C 0,400 0,133 0,133 C 99.35714285714286,141 198.71428571428572,149 312,159 C 425.2857142857143,169 552.5000000000001,181 679,167 C 805.4999999999999,153 931.2857142857142,113 1058,103 C 1184.7142857142858,93 1312.357142857143,113 1440,133 C 1440,133 1440,400 1440,400 Z"
-                ></path>
-                <path
-                  d="M 0,400 C 0,400 0,266 0,266 C 125.46428571428572,256.7142857142857 250.92857142857144,247.42857142857144 369,257 C 487.07142857142856,266.57142857142856 597.75,295 726,293 C 854.25,291 1000.0714285714287,258.57142857142856 1122,249 C 1243.9285714285713,239.42857142857142 1341.9642857142858,252.71428571428572 1440,266 C 1440,266 1440,400 1440,400 Z"
-                  stroke="none"
-                  strokeWidth="0"
-                  fill="#ffffff"
-                ></path>
-              </svg>
-            </div>
-          )}
+            <svg
+              viewBox="0 100 1440 200"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute bottom-0"
+            >
+              <defs>
+                <linearGradient id="gradient">
+                  <stop offset="5%" stopColor="#c9eaf5"></stop>
+                  <stop offset="95%" stopColor="#9ddaed"></stop>
+                </linearGradient>
+              </defs>
+              <path
+                stroke="none"
+                strokeWidth="0"
+                fill="url(#gradient)"
+                d="M 0,400 C 0,400 0,133 0,133 C 99.35714285714286,141 198.71428571428572,149 312,159 C 425.2857142857143,169 552.5000000000001,181 679,167 C 805.4999999999999,153 931.2857142857142,113 1058,103 C 1184.7142857142858,93 1312.357142857143,113 1440,133 C 1440,133 1440,400 1440,400 Z"
+              ></path>
+              <path
+                d="M 0,400 C 0,400 0,266 0,266 C 125.46428571428572,256.7142857142857 250.92857142857144,247.42857142857144 369,257 C 487.07142857142856,266.57142857142856 597.75,295 726,293 C 854.25,291 1000.0714285714287,258.57142857142856 1122,249 C 1243.9285714285713,239.42857142857142 1341.9642857142858,252.71428571428572 1440,266 C 1440,266 1440,400 1440,400 Z"
+                stroke="none"
+                strokeWidth="0"
+                fill="#ffffff"
+              ></path>
+            </svg>
+          </div>
+          )
           <Transition
             show={isMobileMenuOpen}
             enter="transition-opacity duration-75"

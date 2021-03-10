@@ -64,8 +64,6 @@ export default function BlogPage({ directories, mapOfFiles }) {
         </Head>
 
         <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
-          <h2 className="text-4xl font-bold sm:text-7xl mb-14">Blog</h2>
-
           {allPosts}
         </div>
       </div>

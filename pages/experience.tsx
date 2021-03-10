@@ -15,12 +15,6 @@ export default function ExperiencePage() {
       </Head>
       <Layout>
         <div className="max-w-7xl mx-auto mt-12 px-2 sm:px-4 lg:px-8">
-          <div className="mb-14">
-            <h2 className="text-4xl font-bold sm:text-7xl">
-              Work and Experience
-            </h2>
-          </div>
-
           <Experience />
         </div>
       </Layout>

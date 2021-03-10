@@ -7,15 +7,13 @@ module.exports = {
         wave: '#c9eaf5',
       },
       borderColor: {
-        accent: '#F39237',
-        heading: '#EB4763',
+        heading: '#f99236',
       },
       objectPosition: {
         hero: '45% 50%',
       },
       textColor: {
-        accent: '#F39237',
-        heading: '#EB4763',
+        heading: '#f99236',
       },
       textDecoration: {
         dotted: 'underline dotted',
