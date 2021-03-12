@@ -142,7 +142,7 @@ const Layout = ({ children }: { children: any }) => {
               ></path>
             </svg>
           </div>
-          )
+
           <Transition
             show={isMobileMenuOpen}
             enter="transition-opacity duration-75"
