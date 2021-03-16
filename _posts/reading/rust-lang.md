@@ -5,8 +5,7 @@ snippet: 'In this blog post, I talk about Rust and my learnings from The Rust Pr
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
-tag: 'Technology'
-hidden: 'true'
+tag: 'Reading'
 ---
 
 Rust is a language that empowers developers to build reliable and efficient software. It is performant, reliable, and developer-friendly. You can create command line tools, web apps, servers, and embedded systems.

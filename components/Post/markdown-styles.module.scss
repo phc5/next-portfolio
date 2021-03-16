@@ -10,11 +10,11 @@
 }
 
 .markdown h2 {
-  @apply text-3xl mt-8 mb-2 font-bold tracking-tight;
+  @apply text-3xl mt-12 mb-2 font-bold tracking-tight;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-2 font-semibold tracking-tight;
+  @apply text-2xl mt-10 mb-2 font-semibold tracking-tight;
 }
 
 .markdown h4 {
@@ -22,7 +22,7 @@
 }
 
 .markdown p {
-  @apply tracking-wider;
+  @apply tracking-wide;
 }
 
 .markdown a {
@@ -71,4 +71,8 @@
 .markdown table th,
 .markdown table td {
   @apply border border-gray-900 text-center;
+}
+
+.markdown hr {
+  @apply mt-12 border-heading border-2;
 }

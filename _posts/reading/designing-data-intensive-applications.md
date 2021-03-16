@@ -5,8 +5,7 @@ snippet: 'A running list of notes while I read through Designing Data Intensive 
 author:
   name: 'Paul Chong'
   picture: '/profilepic.jpg'
-tag: 'Technology'
-hidden: 'true'
+tag: 'Reading'
 ---
 
 ## Table of Contents

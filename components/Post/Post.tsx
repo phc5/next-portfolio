@@ -30,7 +30,7 @@ export default function Post({ post }) {
 
         <meta name="description" content={post.description}></meta>
       </Head>
-      <div className="mx-auto mt-12 grid grid-cols-1 max-w-6xl px-2 sm:px-4 lg:px-8">
+      <div className="mx-auto mt-12 grid grid-cols-1 max-w-4xl px-2 sm:px-4 lg:px-8">
         <PostHeader
           title={post.title}
           date={post.date}
