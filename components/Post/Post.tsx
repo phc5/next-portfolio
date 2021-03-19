@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PostHeader from './post-header';
 import PostBody from './post-body';
+import PostNav from './post-nav';
 
 export default function Post({ post }) {
   return (
@@ -31,6 +32,7 @@ export default function Post({ post }) {
         <meta name="description" content={post.description}></meta>
       </Head>
       <div className="mx-auto mt-12 grid grid-cols-1 max-w-4xl px-2 sm:px-4 lg:px-8">
+        <PostNav />
         <PostHeader
           title={post.title}
           date={post.date}

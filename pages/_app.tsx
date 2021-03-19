@@ -10,6 +10,7 @@ import '../styles/nprogress.css';
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   usePanelBear(process?.env?.NEXT_PUBLIC_PANEL_BEAR_ID, {
     // Uncomment to allow sending events on localhost, and log to console too.

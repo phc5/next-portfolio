@@ -1,13 +1,14 @@
 const WORK_EXPERIENCE = [
   {
+    type: 'work',
     company: 'Amazon Web Services',
     companyUrl: 'https://aws.amazon.com/',
     description: [
-      'I am currently a Front End Engineer at AWS Activate where I design, develop, and ship user interfaces and experiences for startups of all sizes to build, grow, and scale. I work on several applications that power AWS Activate such as the customer-facing AWS Activate Console and the internal Activate Admin Content Management System.',
-      'Within two months, I led the development of a feature called Tech Hub which was an integral part of the GA Launch of the AWS Activate Console. Tech Hub is a place where startups can get real-time updates on the health of their AWS environment, explore AWS services, and connect with AWS Support. Initially, I was given a spike (research document) to guide me through the implementation details. The findings suggested that I use premade components made by an external team that were integrated with the required data sources. However, I found that the external components could not be used because they were going to be deprecated in the near future and were not compatible with our development environments. I designed an alternative solution to use the AWS JavaScript SDK to fetch and display the required information to our users. This process allowed me to collaborate with internal and external stakeholders, integrate with several external AWS services and an internal CMS, implement and test the feature, and launch it into production.',
-      'A big initiative that I took on after the GA Launch of the AWS Activate Console was improving the code quality of our applications. As part of this initiative, I wrote front-end unit tests and integration tests for components with no test coverage and improved existing tests, and made sure to create tests for new components and features.',
-      'Integrated a Slack bot using AWS Chatbot and AWS Simple Notification Service (SNS) to notify engineers of critical events related to our operations.',
-      'Worked with product managers and UX designers to test and push new ideas using experimentation methods such as A/B tests.',
+      'Maintained and built new features for several applications that power AWS Activate such as the AWS Activate Console and Activate Admin CMS',
+      'Architected and implemented Tech Hub, a place where startups get real-time updates on the health of their AWS environment, explore AWS services, and connect with AWS Support',
+      'Improved code quality by writing front-end unit and integration tests for components with no test coverage and improved existing tests',
+      'Integrated a Slack bot using AWS Chatbot and AWS SNS to notify engineers of critical events related to our operations',
+      'Worked with product managers and UX designers to test and push new ideas using experimentation methods such as A/B tests',
     ],
     endDate: {
       displayDate: 'Present',
@@ -37,16 +38,15 @@ const WORK_EXPERIENCE = [
     ],
   },
   {
+    type: 'work',
     company: 'Cox Automotive',
     companyUrl: 'https://www.coxautoinc.com',
     description: [
-      'Built and maintained several microservices, web applications, and the internal component library for the consumer-facing website KBB.com using React, TypeScript, GraphQL, Apollo Server, Apollo Client, Node.js, .NET, Terraform, and AWS.',
-      'Stretched backend skills by using .NET to architect and build a scheduled data process that pulls data from multiple internal and external APIs in parallel and aggregates them for consumption by various teams.',
-      'Built and maintained components for KBB.com’s internal component library using React, Emotion, TypeScript, Jest, and Storybook.',
-      'Maintained and added new functionality to internal SDKs responsible for core functionality such as data layer, ads, and SEO metadata.',
-      'Member of an internal web performance committee that pushed the engineering organization to focus on maintaining high-performing applications and monitoring metrics by using tools like webpack, New Relic, Splunk, CloudWatch, and Developer Tools and techniques such as lazy loading, code-splitting, and image optimizations.',
-      'Speaker at talks given to internal team members on various topics learned from conferences and self-learning including but not limited to How to Become an AWS Certified Developer Associate, Web Performance, AWS Amplify, and AWS AppSync.',
-      'Promoted STEM careers and mentored elementary, middle, and high school students at various times of the year through programs like Hour of Code and Junior Achievement USA.',
+      'Built and maintained several microservices, web applications, and the internal component library for the consumer-facing website KBB.com using React, TypeScript, GraphQL, Apollo Server, Apollo Client, Node.js, .NET, Terraform, and AWS',
+      'Architected and built a scheduled data process that pulls data from multiple internal and external APIs in parallel and aggregates them for consumption by various teams',
+      'Maintained and added new functionality to internal SDKs responsible for core functionality such as data layer, ads, and SEO metadata',
+      'Member of an internal web performance committee that focused on maintaining high-performing applications and monitoring metrics',
+      'Speaker at talks on various topics including but not limited to How to Become an AWS Certified Developer Associate, Web Performance, AWS Amplify, and AWS AppSync',
     ],
     endDate: {
       displayDate: 'Jul 2020',
@@ -85,13 +85,14 @@ const WORK_EXPERIENCE = [
     ],
   },
   {
+    type: 'work',
     company: 'SalesPad',
     companyUrl: 'https://www.salespad.com/',
     description: [
-      'Internship completed during the spring semester through summer break of my junior year.',
-      'Worked on package builder solution that packaged ​n​ sized items into ​k​ sized boxes (related to the Bin packing problem).',
-      'Collaborated with developers, managers, and product team to learn about product and development lifecycles and built out small features.',
-      'Analyzed performance, maintained, and enhanced the SalesPad application.',
+      'Internship completed during the spring and summer of my junior year',
+      'Worked on package builder solution that packaged ​n​ sized items into ​k​ sized boxes (related to the Bin packing problem)',
+      'Collaborated with developers, managers, and product team to learn about product and development lifecycles and built out small features',
+      'Analyzed performance, maintained, and enhanced the SalesPad application',
     ],
     endDate: {
       displayDate: 'Aug 2015',
@@ -105,10 +106,11 @@ const WORK_EXPERIENCE = [
     technologies: ['C#', 'Git', 'Jira', 'Agile'],
   },
   {
+    type: 'education',
     company: 'Calvin University',
     companyUrl: 'https://calvin.edu/',
     description: [
-      'Graduated in 2016 with a Bachelor of Science (B.S.), Computer Science.',
+      'Graduated in 2016 with a Bachelor of Science (B.S.), Computer Science',
       'Completed courses like Computer Security, Data Structures and Algorithms, High Performance Computing, Operating Systems and Networking, Programming Language Concepts, Software Engineering, Website Administration, and Agile Game Development in South Korea',
     ],
     endDate: {

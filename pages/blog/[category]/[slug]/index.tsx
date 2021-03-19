@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import Layout from '../../../../components/Layout';
 import Post from '../../../../components/Post/Post';
 import PostTitle from '../../../../components/Post/post-title';
 import { getPost, getPostSlugs, getBlogCategories } from '../../../../lib/api';
@@ -12,14 +11,10 @@ export default function SnippetsPostPage({ post }) {
     return <ErrorPage statusCode={404} />;
   }
 
-  return (
-    <Layout>
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <Post post={post} />
-      )}
-    </Layout>
+  return router.isFallback ? (
+    <PostTitle>Loading…</PostTitle>
+  ) : (
+    <Post post={post} />
   );
 }
 

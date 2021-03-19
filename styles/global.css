@@ -3,8 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    @apply text-gray-900;
-  }
+:root {
+  --color-black: hsl(0, 0%, 8%);
+  --color-teal: hsl(172, 100%, 48%);
+  --color-light-teal: hsl(172, 100%, 60%);
+  --color-gray: hsl(210, 3%, 13%);
+  --color-light-gray: hsl(228, 10%, 63%);
+  --color-lighter-gray: hsla(228, 0%, 60%, 0.3);
+  --color-white: hsl(0, 0%, 100%);
+
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
