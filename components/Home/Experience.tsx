@@ -58,10 +58,10 @@ export default function Experience({ setExperienceRef }) {
                 </svg>
               )}
               <div>
-                <h3>
+                <h3 className="flex flex-col sm:flex-row">
                   <span>{experience.jobTitle}</span>
                   <span className="text-white">
-                    &nbsp;@&nbsp;
+                    <span>&nbsp;@&nbsp;</span>
                     <a
                       href={experience.companyUrl}
                       className="cursor-pointer transition-colors duration-300 hover:underline hover:text-teal"

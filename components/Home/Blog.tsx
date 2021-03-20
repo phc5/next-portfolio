@@ -8,9 +8,9 @@ export default function Blog({ posts, setBlogRef }) {
         <article key={post.title}>
           <Link href={post.path}>
             <a className="flex flex-col text-light-gray bg-gray p-8 mt-2 transition duration-500 transform hover:scale-105 cursor-pointer">
-              <span className="flex justify-between">
+              <span className="flex flex-col justify-between sm:flex-row">
                 <h3 className="text-white">{post.title}</h3>
-                <p className="text-xs font-mono">{post.date}</p>
+                <p className="text-xs font-mono mt-1 sm:mt-0">{post.date}</p>
               </span>
               <p className="text-sm mt-4 tracking-tighter leading-relaxed">
                 {post.snippet}
