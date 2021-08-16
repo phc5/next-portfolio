@@ -1,6 +1,21 @@
 const WORK_EXPERIENCE = [
   {
     type: 'work',
+    company: 'Facebook',
+    companyUrl: 'https://facebook.com/',
+    description: ['Updates coming soon...'],
+    endDate: {
+      displayDate: 'Present',
+    },
+    jobTitle: 'Front End Engineer',
+    startDate: {
+      displayDate: 'Aug 2021',
+      valueDate: '2021-08',
+    },
+    technologies: [],
+  },
+  {
+    type: 'work',
     company: 'Amazon Web Services',
     companyUrl: 'https://aws.amazon.com/',
     description: [
@@ -11,7 +26,8 @@ const WORK_EXPERIENCE = [
       'Worked with product managers and UX designers to test and push new ideas using experimentation methods such as A/B tests',
     ],
     endDate: {
-      displayDate: 'Present',
+      displayDate: 'Jul 2021',
+      valueDate: '2021-07',
     },
     jobTitle: 'Front End Engineer',
     startDate: {
